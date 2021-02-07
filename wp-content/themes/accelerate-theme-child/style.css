@@ -1,0 +1,19 @@
+/*
+Theme Name:   Accelerate Theme Child
+Theme URI:    http://example.com/accelerate-theme-child/
+Description:  Accelerate Child Theme - Accelerate
+Author:   	Caitlin Marshall
+Author URI:   http://caitlinpmarshall.com
+Template: 	accelerate-theme
+Version:      2.0.0
+Tags:     	light, dark, two-columns, right-sidebar, responsive-layout, accessibility-ready
+Text Domain:  accelerate-theme-child
+*/
+
+#masthead, .button {
+    background: #44A694;
+}
+
+.home-page {
+    background: url(img/taxi-photo.jpg);
+}
