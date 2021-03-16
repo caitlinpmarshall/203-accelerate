@@ -15,7 +15,7 @@ Text Domain:  accelerate-theme-child
 }
 
 .home-page {
-    background: url(img/taxi-photo.jpg);
+    background-image: url(img/taxi-photo.jpg);
 }
 
 
