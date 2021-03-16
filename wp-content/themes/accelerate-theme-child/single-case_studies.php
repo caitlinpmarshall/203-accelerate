@@ -23,7 +23,7 @@ get_header(); ?>
 				<article class="case-study">
 					<aside class="case-study-sidebar">
 						<h2><?php the_title(); ?></h2>
-						<h4><?php echo $services; ?></h4>
+						<h4><span><?php echo $services; ?></span></h4>
 						<h4><?php echo $client; ?></h4>
 						<p><?php the_content(); ?></p>
 						<p class="read-more-link"><a href="<?php echo $link; ?>">Visit Live Site ›</a></p>
@@ -52,5 +52,9 @@ get_header(); ?>
 		</div><!-- .main-content -->
 
 	</div><!-- #primary -->
+
+<nav id="navigation" class="container">
+	<div class="left"><a href="<?php echo site_url('/blog/') ?>">&larr; <span>Back to posts</span></a></div>
+</nav>
 
 <?php get_footer(); ?>
