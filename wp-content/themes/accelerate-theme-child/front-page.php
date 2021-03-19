@@ -32,7 +32,7 @@ get_header(); ?>
 					?>
 						<div class="individual-featured-work">
 							<figure>
-								<?php echo wp_get_attachment_image( $image_1, $size ); ?>
+								<a href="<?php the_permalink(); ?>"><?php echo wp_get_attachment_image( $image_1, $size ); ?></a>
 							</figure>
 							<h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
 						</div>
