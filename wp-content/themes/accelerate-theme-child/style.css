@@ -10,6 +10,8 @@ Tags:     	light, dark, two-columns, right-sidebar, responsive-layout, accessibi
 Text Domain:  accelerate-theme-child
 */
 
+/* Homepage Styles */
+
 #masthead, .button {
     background: #44A694;
 }
@@ -18,6 +20,34 @@ Text Domain:  accelerate-theme-child
     background-image: url(img/taxi-photo.jpg);
 }
 
+.featured-work {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 4em;
+}
+
+.featured-work h4 {
+    text-align: center;
+    text-transform: uppercase;
+    margin: 0 0 3em;
+}
+
+.homepage-featured-work {
+    display: flex;
+    justify-content: space-between;
+    flex-flow: row wrap;
+}
+
+.individual-featured-work {
+
+}
+
+.individual-featured-work h3 {
+    text-align: center;
+    margin: .5em 0;
+    font-weight: 400;
+}
 
 .blog-post {
     width: 50%;
@@ -34,6 +64,10 @@ Text Domain:  accelerate-theme-child
 
 .blog-post h3 {
     font-size: 1.5em;
+}
+
+.blog-post p {
+    margin: 2em 0;
 }
 
 .read-more-link {
