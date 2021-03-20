@@ -10,6 +10,30 @@ Tags:     	light, dark, two-columns, right-sidebar, responsive-layout, accessibi
 Text Domain:  accelerate-theme-child
 */
 
+/* Footer Nav Styles */
+.social-media-menu {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.social-media-menu li {
+    background: #333;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.social-media-menu li a {
+    color: #fff;
+    font-size: 1.2em;
+}
+
+
 /* Homepage Styles */
 
 #masthead, .button {
