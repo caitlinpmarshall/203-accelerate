@@ -115,7 +115,7 @@ Text Domain:  accelerate-theme-child
 
 .case-study .case-study-sidebar h2 {
     font-size: 1.5em;
-    margin-bottom: 0;
+    margin: 0;
 }
 
 .case-study .case-study-sidebar h4 {
@@ -129,13 +129,20 @@ Text Domain:  accelerate-theme-child
     color: #a6a6a6;
 }
 
+.case-study .case-study-sidebar p {
+    margin: 0;
+}
+
 .case-study .screenshots {
     float: left;
     width: 55%;
+    padding: 2em 0;
 }
 
 .screenshots img {
     width: 100%;
+    height: auto;
+    margin-bottom: 4em;
 }
 
 /* Case Studies Archive Styles */
@@ -171,3 +178,38 @@ Text Domain:  accelerate-theme-child
 .case-study-sidebar-archive p {
     margin: 0;
 }
+
+.case-study-archive .screenshots img {
+    width: 100%;
+    max-width: 514px;
+    height: auto;
+}
+
+/* Contact Form Styles */
+h2 {
+    margin: 0;
+}
+
+p {
+    margin: .25em auto 2em auto;
+}
+
+.ninja-forms-field {
+    background-color: #fff !important;
+  }
+
+.nf-field-label label {
+    font-weight: 400 !important;
+}
+
+.ninja-forms-req-symbol {
+    display: none;
+  }
+
+#nf-field-8 {
+    background-color: #44A694 !important;
+    float: right;
+    width: 25%;
+
+}
+

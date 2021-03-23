@@ -19,14 +19,15 @@ get_header(); ?>
             ?>
                 <article class="case-study-archive">
 					<aside class="case-study-sidebar-archive">
-						<h2><?php the_title(); ?></h2>
+						<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 						<h4><span><?php echo $services; ?></span></h4>
-						<p><?php the_content(); ?></p>
+						<p><?php the_excerpt(); ?></p>
 						<p class="read-more-link"><a href="<?php the_permalink(); ?>">View Project ›</a></p>
 					</aside>
-                    <div>
-                        <a href=""></a>
-                        <?php echo wp_get_attachment_image( $image_1, $size ); ?>
+                    <div class="screenshots">
+						<figure>
+                        	<a href="<?php the_permalink(); ?>"><?php echo wp_get_attachment_image( $image_1, $size ); ?></a>
+                        </figure>
                     </div>
                 </article>
 			<?php endwhile; // end of the loop. ?>
