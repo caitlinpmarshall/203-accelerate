@@ -194,12 +194,13 @@ p {
     margin: .25em auto 2em auto;
 }
 
-.ninja-forms-field {
-    background-color: #fff !important;
+#nf-field-5, #nf-field-6, #nf-field-7 {
+    background-color: #fff;
   }
 
-.nf-field-label label {
-    font-weight: 400 !important;
+  
+.main-content .nf-field-label label {      
+    font-weight: normal;
 }
 
 .ninja-forms-req-symbol {
@@ -207,7 +208,7 @@ p {
   }
 
 #nf-field-8 {
-    background-color: #44A694 !important;
+    background-color: #44A694;
     float: right;
     width: 25%;
 
