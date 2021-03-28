@@ -5378,7 +5378,7 @@ define('controllers/fieldRepeater',[ 'models/fieldRepeaterSetCollection', 'model
         		return false;
         	}
 
-        	let fields = new fieldCollection( model.get( 'fields' ), { formModel: model.collection.options.formModel },  );
+        	let fields = new fieldCollection( model.get( 'fields' ), { formModel: model.collection.options.formModel } );
         	model.set( 'sets', new repeaterSetCollection( [ { fields: fields } ], { templateFields: model.get( 'fields' ), formModel: model.collection.options.formModel, repeaterFieldModel: model } ) );
         },
 
@@ -5473,7 +5473,7 @@ define(
 		Submit,
 		DefaultFilters,
 		UniqueFieldError,
-		FieldRepeater,
+		FieldRepeater
 	) {
 		var controller = Marionette.Object.extend( {
 			initialize: function() {
