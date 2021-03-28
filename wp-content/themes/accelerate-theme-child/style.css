@@ -40,8 +40,10 @@ Text Domain:  accelerate-theme-child
     background: #44A694;
 }
 
-.home-page {
+.hero-content {
     background-image: url(img/taxi-photo.jpg);
+    background-position: center;
+    background-size: cover;
 }
 
 .featured-work {
@@ -214,3 +216,96 @@ p {
 
 }
 
+/* About Page Styles */
+.hero-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 0 3em 0;
+   
+}
+
+.about-page
+
+.about-hero-text {
+    color: #fff;
+    font-size: 1.25em;
+    width: 50%;
+    text-align: center;
+    margin: 2em;
+}
+
+.content-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.featured-services-intro {
+    text-align: center;
+    width: 65%;
+}
+
+.featured-services-intro h3 {
+    text-transform: uppercase;
+}
+
+.featured-service-item {
+    display: flex;
+    justify-content: center;
+}
+
+.featured-service-icon, .featured-service-item img {
+    margin: 4em;
+}
+
+.featured-service-text h4 {
+    font-weight: 400;
+    font-size: 1.3em;
+}
+
+.contact-link {
+    border-top: 1px solid #bfbfbf;
+}
+
+.contact-link .content-wrapper {
+    margin-top: 1.5em;
+}
+
+.contact-link p {
+    font-size: 1.2em;
+    font-weight: 700;
+    margin: 2em 1em;
+}
+
+/* 404 Error Page Styles */
+.error-page {
+    background-image: url('img/braydon-anderson-wOHH-NUTvVc-unsplash.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.error-message {
+    padding: 2em;
+}
+
+.error-message h2 {
+    color: #fff;
+    font-size: 3em;
+}
+
+.error-message p {
+    color: #fff;
+    font-size: 2em;
+}
+
+.error-message a {
+    color: #44A694;
+    font-weight: 700;
+}
+
+.photo-credit {
+    padding: .5em 1em;
+}
+.photo-credit a {
+    color: #fff;
+}
