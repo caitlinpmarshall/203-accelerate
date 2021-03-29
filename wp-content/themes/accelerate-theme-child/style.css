@@ -255,7 +255,7 @@ p {
 }
 
 .featured-service-icon, .featured-service-item img {
-    margin: 4em;
+    margin: 2em 4em;
 }
 
 .featured-service-text h4 {
@@ -291,6 +291,7 @@ p {
 .error-message h2 {
     color: #fff;
     font-size: 3em;
+    font-family: 'Londrina Solid', 'Montserrat', 'Open Sans', Arial, sans-serif;
 }
 
 .error-message p {

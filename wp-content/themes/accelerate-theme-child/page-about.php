@@ -50,7 +50,7 @@ get_header(); ?>
 
 				<section class="featured-services-group">
 					<article class="featured-service-item">
-						<p class="featured-service-icon"><?php echo wp_get_attachment_image( $service_1_icon ); ?></p>
+						<img src="<?php echo $service_1_icon; ?>" alt="bullseye icon">
 						<div class="featured-service-text">
 							<h4><?php echo $service_1_title; ?></h4>
 							<p><?php echo $service_1_desc; ?></p>
@@ -62,11 +62,11 @@ get_header(); ?>
 							<h4><?php echo $service_2_title; ?></h4>
 							<p><?php echo $service_2_desc; ?></p>						
 						</div>
-						<img src="" alt="atom icon">
+						<img src="<?php echo $service_2_icon; ?>" alt="atom icon">
 					</article>
 
 					<article class="featured-service-item">
-						<img src="" alt="thumbs up icon">
+						<img src="<?php echo $service_3_icon; ?>" alt="thumbs up icon">
 						<div class="featured-service-text">
 							<h4><?php echo $service_3_title; ?></h4>
 							<p><?php echo $service_3_desc; ?></p>						
@@ -78,7 +78,7 @@ get_header(); ?>
 							<h4><?php echo $service_4_title; ?></h4>
 							<p><?php echo $service_4_desc; ?></p>
 						</div>
-						<img src="" alt="magic wand icon">
+						<img src="<?php echo $service_4_icon; ?>" alt="magic wand icon">
 					</article>
 				</section>
 
