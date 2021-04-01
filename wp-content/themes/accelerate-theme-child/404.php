@@ -22,5 +22,3 @@ get_header(); ?>
 			</div>
 		</div><!-- .main-content -->
 	</div><!-- #primary -->
-
-<?php get_footer(); ?>

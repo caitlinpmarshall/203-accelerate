@@ -40,8 +40,8 @@ get_header(); ?>
 				<?php wp_reset_query(); ?>
 			</div>
 		</div>
-
 	</section>
+
 	<section class="recent-posts">
 		<div class="site-content">
 			<div class="blog-post">
@@ -53,14 +53,18 @@ get_header(); ?>
 					<?php endwhile; ?>
 				<?php wp_reset_query(); ?>
 			</div>
-		</div>
-		<div>	
-			<?php if ( is_active_sidebar( 'sidebar-2' ) ) : ?>
-				<div id="secondary" class="widget-area" role="complementary">
-					<?php dynamic_sidebar( 'sidebar-2' ); ?>
-				</div>
-			<?php endif; ?>
-			<p>is this section here?</p>
+		
+			<div class="tweet-widget">	
+				<h4>Recent Tweet</h4>
+				<?php if ( is_active_sidebar( 'sidebar-2' ) ) : ?>
+					<div id="secondary" class="widget-area" role="complementary">
+						<?php dynamic_sidebar( 'sidebar-2' ); ?>
+					</div>
+				<?php endif; ?>
+				<p class="tweet-follow"> 
+					<a href="https://twitter.com/cpmarshall_me" target="_blank">Follow Us ›</a>
+				</p>
+			</div>
 		</div>
 	</section>
 
