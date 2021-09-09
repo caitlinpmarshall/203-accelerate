@@ -1,8 +1,8 @@
 <?php
 /* unserialize all saved option for  section 4 options */
-$option6 =  unserialize(get_option('sfsi_section6_options', false));
-$option4 =  unserialize(get_option('sfsi_section4_options', false));
-$option2 =  unserialize(get_option('sfsi_section2_options', false));
+$option6 = maybe_unserialize(get_option('sfsi_section6_options', false));
+$option4 = maybe_unserialize(get_option('sfsi_section4_options', false));
+$option2 = maybe_unserialize(get_option('sfsi_section2_options', false));
 if (!isset($option4['sfsi_facebook_mypageCounts'])) {
     $option4['sfsi_facebook_mypageCounts'] = '';
 }
@@ -10,12 +10,12 @@ if (!isset($option4['sfsi_facebook_mypageCounts'])) {
 /*
  * Sanitize, escape and validate values
  */
-$option4['sfsi_display_counts']         = (isset($option4['sfsi_display_counts'])) ? sanitize_text_field($option4['sfsi_display_counts']) : '';
-$option4['sfsi_email_countsFrom']         = (isset($option4['sfsi_email_countsFrom'])) ? sanitize_text_field($option4['sfsi_email_countsFrom']) : '';
-$option4['sfsi_email_manualCounts']     = (isset($option4['sfsi_email_manualCounts'])) ? intval($option4['sfsi_email_manualCounts']) : '';
-$option4['sfsi_rss_countsDisplay']         = (isset($option4['sfsi_rss_countsDisplay'])) ? sanitize_text_field($option4['sfsi_rss_countsDisplay']) : '';
-$option4['sfsi_rss_manualCounts']         = (isset($option4['sfsi_rss_manualCounts'])) ? intval($option4['sfsi_rss_manualCounts']) : '';
-$option4['sfsi_email_countsDisplay']     = (isset($option4['sfsi_email_countsDisplay'])) ? sanitize_text_field($option4['sfsi_email_countsDisplay']) : '';
+$option4['sfsi_display_counts']        = (isset($option4['sfsi_display_counts'])) ? sanitize_text_field($option4['sfsi_display_counts']) : '';
+$option4['sfsi_email_countsFrom']      = (isset($option4['sfsi_email_countsFrom'])) ? sanitize_text_field($option4['sfsi_email_countsFrom']) : '';
+$option4['sfsi_email_manualCounts']    = (isset($option4['sfsi_email_manualCounts'])) ? intval($option4['sfsi_email_manualCounts']) : '';
+$option4['sfsi_rss_countsDisplay']     = (isset($option4['sfsi_rss_countsDisplay'])) ? sanitize_text_field($option4['sfsi_rss_countsDisplay']) : '';
+$option4['sfsi_rss_manualCounts']      = (isset($option4['sfsi_rss_manualCounts'])) ? intval($option4['sfsi_rss_manualCounts']) : '';
+$option4['sfsi_email_countsDisplay']   = (isset($option4['sfsi_email_countsDisplay'])) ? sanitize_text_field($option4['sfsi_email_countsDisplay']) : '';
 
 $option4['sfsi_facebook_countsDisplay'] = (isset($option4['sfsi_facebook_countsDisplay']))
     ? sanitize_text_field($option4['sfsi_facebook_countsDisplay'])
@@ -254,10 +254,10 @@ $hide = "display:none;";
     <p>
         <?php 
                 printf(
-                    __( 'Of course, if you start at 0, you shoot yourself in the foot with that. So we suggest that you only turn this feature on once you have a good number of followers/likes/shares (min. of 20 – no worries if it’s not too many, it should just not be 0).%1sNew:%2sIn the Premium Plugin you can define a threshold (min. number of counts) when it will automatically switch to showing the counts.%3sGo Premium%4s','ultimate-social-media-icons' ),
+                    __( 'Of course, if you start at 0, you shoot yourself in the foot with that. So we suggest that you only turn this feature on once you have a good number of followers/likes/shares (min. of 20 – no worries if it’s not too many, it should just not be 0). %1sNew:%2s In the Premium Plugin you can define a threshold (min. number of counts) when it will automatically switch to showing the counts. %3sGo Premium%4s','ultimate-social-media-icons' ),
                     '<b>',
                     '</b>',
-                    '<a style="cursor:pointer" class="pop-up" data-id="sfsi_quickpay-overlay" onclick="sfsi_open_quick_checkout(event)" class="sfisi_font_bold" target="_blank">',
+                    '<a style="cursor:pointer" class="pop-up" href="https://www.ultimatelysocial.com/usm-premium/?withqp=1&utm_source=usmi_settings_page&utm_campaign=top_banner&utm_medium=link" class="sfisi_font_bold" target="_blank">',
                     '</a>'
                 );
             ?>
@@ -377,7 +377,7 @@ $hide = "display:none;";
             <div class="listing">
                 <ul class="sfsi_fb_popup_contain">
                     <li>
-                    <input name="sfsi_facebook_countsFrom" <?php echo ($option4['sfsi_facebook_countsFrom'] == 'likes') ?  'checked="true"' : ''; ?> type="radio" value="likes" class="styled" /><?php _e('Retrieve the number of likes','ultimate-social-media-icons') ?><strong><?php _e('of your blog','ultimate-social-media-icons') ?></strong>
+                    <input name="sfsi_facebook_countsFrom" <?php echo ($option4['sfsi_facebook_countsFrom'] == 'likes') ?  'checked="true"' : ''; ?> type="radio" value="likes" class="styled" /><?php _e('Retrieve the number of likes ','ultimate-social-media-icons') ?><strong><?php _e('of your blog','ultimate-social-media-icons') ?></strong>
                         <div class="sfsi_prem_fbpgiddesc">
                             <div class="sfsi_prem_fbpgidwpr" style="<?php echo ($option4['sfsi_facebook_countsFrom'] == 'likes' || $option4['sfsi_facebook_countsFrom'] == 'followers' || $option4['sfsi_facebook_countsFrom'] == 'manual') ?  'display:none;' : ''; ?>"></div>
 
@@ -402,15 +402,15 @@ $hide = "display:none;";
 
                     <?php 
                         printf(
-                            __( '%1sNote:%2sThis plugin uses%3sone%4sAPI shared by all users of this plugin. There is a limit (set by Facebook) how often this API can get the counts per day, so it may happen that it returns “0 counts”later in the day.%5sTherefore we implemented a solution as part of our Premium Plugin where you can%6seasily%7sset up your own API in a few steps, which will fix this problem.%8sor learn more%9s','ultimate-social-media-icons' ),
+                            __( '%1$sNote:%2$s This plugin uses %3$sone%4$s API shared by all users of this plugin. There is a limit (set by Facebook) how often this API can get the counts per day, so it may happen that it returns “0 counts”later in the day.%5$sTherefore we implemented a solution as part of our Premium Plugin where you can %6$seasily%7$s set up your own API in a few steps, which will fix this problem.%8$s or learn more.%9$s','ultimate-social-media-icons' ),
                             '<p class="sfsi_shared_premium"><b>',
                             '</b>',
                             '<u>',
                             '</u>',
                             '<br><br>',
                             '<b>',
-                            ' </b>',
-                            '<br><br><a style="cursor:pointer;border-bottom: 1px solid #12a252;color: #12a252 !important" class="pop-up" data-id="sfsi_quickpay-overlay" onclick="sfsi_open_quick_checkout(event)" style="border-bottom: 1px solid #12a252;color: #12a252 !important" class="sfisi_font_bold" target="_blank">Go premium now<a href="https://www.ultimatelysocial.com/usm-premium/?utm_source=usmi_settings_page&utm_campaign=facebook_counts&utm_medium=banner" class="sfsi_font_inherit" style="color: #12a252 !important" target="_blank">',
+                            '</b>',
+                            '<br><br><a style="cursor:pointer;border-bottom: 1px solid #12a252;color: #12a252 !important" class="pop-up" href="https://www.ultimatelysocial.com/usm-premium/?withqp=1&utm_source=usmi_settings_page&utm_campaign=top_banner&utm_medium=link" style="border-bottom: 1px solid #12a252;color: #12a252 !important" class="sfisi_font_bold" target="_blank">Go premium now<a href="https://www.ultimatelysocial.com/usm-premium/?utm_source=usmi_settings_page&utm_campaign=facebook_counts&utm_medium=banner" class="sfsi_font_inherit" style="color: #12a252 !important" target="_blank">',
                             '</a>'
                         );
                     ?> 
@@ -462,9 +462,9 @@ $hide = "display:none;";
                             </li>
                         </ul>
                         <ul class="SFSI_instructions">
-                            <li class="tw_follow_options" style="<?php echo ($option4['sfsi_twitter_countsFrom'] == 'manual') ?  'display:none;' : ''; ?>"><?php _e(" Please make sure you have entered the",'ultimate-social-media-icons') ?> <b><?php _e("Username",'ultimate-social-media-icons') ?> </b> <?php _e("for",'ultimate-social-media-icons') ?> <b><?php _e('Follow me on Twitter:"','ultimate-social-media-icons') ?></b><?php _e(" in twitter settings under question number 2.",'ultimate-social-media-icons') ?> </li>
+                            <li class="tw_follow_options" style="<?php echo ($option4['sfsi_twitter_countsFrom'] == 'manual') ?  'display:none;' : ''; ?>"><?php _e(" Please make sure you have entered the",'ultimate-social-media-icons') ?> <b><?php _e("Username",'ultimate-social-media-icons') ?> </b> <?php _e("for",'ultimate-social-media-icons') ?> <b><?php _e('Follow me on Twitter:"','ultimate-social-media-icons') ?></b><?php _e(" in Twitter settings under question number 2.",'ultimate-social-media-icons') ?> </li>
                             <li class="tw_follow_options" style="<?php echo ($option4['sfsi_twitter_countsFrom'] == 'manual') ?  'display:none;' : ''; ?>">
-                                <!-- <h3> --><b><?php _e("To get this information :",'ultimate-social-media-icons') ?> </b><!-- </h3> -->
+                                <!-- <h3> --><b><?php _e("To get this information:",'ultimate-social-media-icons') ?> </b><!-- </h3> -->
                             </li>
                             <li class="tw_follow_options" style="<?php echo ($option4['sfsi_twitter_countsFrom'] == 'manual') ?  'display:none;' : ''; ?>"><?php _e("1: Go to",'ultimate-social-media-icons') ?> <a href="http://apps.twitter.com" target="_blank">apps.twitter.com</a></li>
                             <li class="tw_follow_options" style="<?php echo ($option4['sfsi_twitter_countsFrom'] == 'manual') ?  'display:none;' : ''; ?>"><?php _e('2: Click on "Create new app"','ultimate-social-media-icons') ?></li>
@@ -570,14 +570,14 @@ $hide = "display:none;";
             </div>
             <div class="sfsi_new_prmium_follw" style="margin-top: 38px;">
                 <?php 
-                        printf(
-                            __( '%1s New: %2s In the Premium Plugin you can also automatically show the number of PINs from your Pinterest account, or of a specific board, or the number of your Pinterest followers. %3s Go premium now %4s  or learn more. %5s','ultimate-social-media-icons' ),
-                            '<p><b>',
-                            '</b>',
-                            '<a style="cursor:pointer;border-bottom: 1px solid #12a252;color: #12a252 !important;font-weight:bold" class="pop-up" data-id="sfsi_quickpay-overlay" onclick="sfsi_open_quick_checkout(event)" class="sfisi_font_bold" target="_blank">',
-                            '</a><a href="https://www.ultimatelysocial.com/usm-premium/?utm_source=usmi_settings_page&utm_campaign=more_pinterest_counts&utm_medium=banner" class="sfsi_font_inherit" target="_blank"> ',
-                            '</a></p>'
-                        );
+                    printf(
+                        __( '%1$sNew:%2$s In the Premium Plugin you can also automatically show the number of PINs from your Pinterest account, or of a specific board, or the number of your Pinterest followers. %3$sGo premium now%4$s or learn more.%5$s','ultimate-social-media-icons' ),
+                        '<p><b>',
+                        '</b>',
+                        '<a style="cursor:pointer;border-bottom: 1px solid #12a252;color: #12a252 !important;font-weight:bold" class="pop-up" href="https://www.ultimatelysocial.com/usm-premium/?withqp=1&utm_source=usmi_settings_page&utm_campaign=top_banner&utm_medium=link" class="sfisi_font_bold" target="_blank">',
+                        '</a><a href="https://www.ultimatelysocial.com/usm-premium/?utm_source=usmi_settings_page&utm_campaign=more_pinterest_counts&utm_medium=banner" class="sfsi_font_inherit" target="_blank">',
+                        '</a></p>'
+                    );
                 ?>     
             </div>
         </div>

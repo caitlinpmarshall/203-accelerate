@@ -2,14 +2,16 @@
 Contributors: socialdude, socialtech
 Tags: share, pop up, popup, share icons, share buttons, social media, social, popups, sharing icons, sharing buttons, social share, sharing
 Requires at least: 3.5
-Tested up to: 5.7
-Stable tag: 2.6.6
+Tested up to: 5.8
+Stable tag: 2.6.7
 License: GPLv2 
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 Share buttons and pop up share icons for social media sharing 
 
 == Description ==
+
+**Try it out on your free dummy site: Click here => [https://tastewp.com/new/?pre-installed-plugin-slug=ultimate-social-media-icons](https://tastewp.com/new/?pre-installed-plugin-slug=ultimate-social-media-icons)**
 
 Social media plugin which let's you add share icons for RSS, Email, Facebook, Twitter, LinkedIn, Pinterest, Instagram, Youtube, 'Share' (covering 200+ other social media platforms) and upload custom share icons of your choice. 
 
@@ -67,6 +69,7 @@ We released a premium social share plugin with many more exciting features:
 
 Have a look at the [Premium Plugin features](https://www.ultimatelysocial.com/usm-premium/)
 
+This plugin is part of the Inisev product family - [check out our other products](https://inisev.com).
 
 == Installation ==
 Extract the zip file and drop the contents into the wp-content/plugins/ directory of your WordPress installation. Then activate the plugin from the plugins page.
@@ -274,6 +277,13 @@ You cannot use the same plugin twice, however you can install both the USM as we
 
 
 == Changelog ==
+= 2.6.7 =
+* Check PHP 8.0 compatibility
+* Change unserialize to maybe_unserialize
+* Update Instagram icons
+* Fix transaltion issues
+* Some minor fixes
+
 = 2.6.6 =
 * Vulnerability fix
 * Some minor fixes
@@ -982,5 +992,5 @@ You cannot use the same plugin twice, however you can install both the USM as we
 
 == Upgrade Notice ==
 
-= 2.6.6 =
+= 2.6.7 =
 Please upgrade

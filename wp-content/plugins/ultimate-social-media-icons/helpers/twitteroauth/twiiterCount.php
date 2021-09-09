@@ -7,7 +7,7 @@ function sfsi_twitter_followers(){
 
 	$count = 0;
 
-	$sfsi_section4_options =  unserialize(get_option('sfsi_section4_options',false));		
+	$sfsi_section4_options = maybe_unserialize(get_option('sfsi_section4_options',false));		
 
 	if(isset($sfsi_section4_options['tw_consumer_key']) && isset($sfsi_section4_options['tw_consumer_secret']) 
 			&& isset($sfsi_section4_options['tw_oauth_access_token']) && isset($sfsi_section4_options['tw_oauth_access_token_secret'])){

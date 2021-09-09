@@ -1,7 +1,7 @@
 <?php
 /* unserialize all saved option for second section options */
-$option4 =  unserialize(get_option('sfsi_section4_options', false));
-$option2 =  unserialize(get_option('sfsi_section2_options', false));
+$option4 = maybe_unserialize(get_option('sfsi_section4_options', false));
+$option2 = maybe_unserialize(get_option('sfsi_section2_options', false));
 
 /*
  * Sanitize, escape and validate values
@@ -174,7 +174,7 @@ if (isset($option2['sfsi_youtubeusernameorid']) && "id" == $option2['sfsi_youtub
             <p>
                 <?php _e('It allows your visitors to subscribe to your site (on','ultimate-social-media-icons') ?> <a href="http://api.follow.it/widgets/emailSubscribeEncFeed/<?php echo $feedId; ?>/<?php echo base64_encode(8); ?>" target="new"><?php _e('this screen','ultimate-social-media-icons') ?></a><?php _e(') and receive new posts automatically by email.','ultimate-social-media-icons') ?>
             </p>
-            <p><?php _e('Please pick which icon type you want to use:','ultimate-social-media-icons') ?><?php _e('Email icon','ultimate-social-media-icons') ?></p>
+            <p><?php _e('Please pick which icon type you want to use:','ultimate-social-media-icons') ?></p>
             <ul class="tab_2_email_sec">
                 <li>
                     <div class="sfsiicnsdvwrp">
@@ -199,15 +199,15 @@ if (isset($option2['sfsi_youtubeusernameorid']) && "id" == $option2['sfsi_youtub
             <div class='sfsi_service_row'>
                 <div class='sfsi_service_column'>
                     <ul>
-                        <li><span><?php _e('More people come back','ultimate-social-media-icons') ?></span><?php _e('to your site','ultimate-social-media-icons') ?> </li>
-                        <li><?php _e('See your','ultimate-social-media-icons') ?><span><?php _e('subscribers’ emails','ultimate-social-media-icons') ?> </span> & <span><?php _e('interesting statistics','ultimate-social-media-icons') ?></span></li>
+                        <li><span><?php _e('More people come back','ultimate-social-media-icons') ?></span> <?php _e('to your site','ultimate-social-media-icons') ?> </li>
+                        <li><?php _e('See your','ultimate-social-media-icons') ?><span> <?php _e('subscribers’ emails','ultimate-social-media-icons') ?> </span> & <span><?php _e('interesting statistics','ultimate-social-media-icons') ?></span></li>
                         <li><?php _e('Automatically post on','ultimate-social-media-icons') ?><span> <?php _e('Facebook & Twitter','ultimate-social-media-icons') ?></span></li>
                     </ul>
                 </div>
                 <div class='sfsi_service_column'>
                     <ul>
-                        <li><span><?php _e('Get more traffic','ultimate-social-media-icons') ?></span><?php _e('by being listed in the follow.it directory','ultimate-social-media-icons') ?> </li>
-                        <li><span><?php _e('Get alerts','ultimate-social-media-icons') ?></span><?php _e('when people subscribe or unsubscribe','ultimate-social-media-icons') ?> </li>
+                        <li><span><?php _e('Get more traffic','ultimate-social-media-icons') ?></span> <?php _e('by being listed in the follow.it directory','ultimate-social-media-icons') ?> </li>
+                        <li><span><?php _e('Get alerts','ultimate-social-media-icons') ?></span> <?php _e('when people subscribe or unsubscribe','ultimate-social-media-icons') ?> </li>
                         <li><span><?php _e('Tailor the sender name & subject line','ultimate-social-media-icons') ?></span> <?php _e('of the emails','ultimate-social-media-icons') ?> </li>
                     </ul>
                 </div>
@@ -238,7 +238,7 @@ if (isset($option2['sfsi_youtubeusernameorid']) && "id" == $option2['sfsi_youtub
             <div class="sfsi_new_prmium_follw">
                 <?php 
                     printf(
-                        __( '%1sNew:%2sIn our Premium Plugin you can now give your email icon other functions too, e.g. %3s contact you %4s(email),%5sshare by email, %6s and %7s link to a certain page %8s (e.g. your contact form or newsletter sign-up site). %9s Go premium now %10s  or learn more.%11s','ultimate-social-media-icons' ),
+                        __( '%1$sNew:%2$s In our Premium Plugin you can now give your email icon other functions too, e.g. %3$scontact you%4$s (email), %5$sshare by email,%6$s and %7$slink to a certain page%8$s (e.g. your contact form or newsletter sign-up site). %9$sGo premium now%10$s or learn more.%11$s','ultimate-social-media-icons' ),
                         '<p><b>',
                         '</b>',
                         '<b>',
@@ -247,7 +247,7 @@ if (isset($option2['sfsi_youtubeusernameorid']) && "id" == $option2['sfsi_youtub
                         '</b>',
                         '<b>',
                         '</b>',
-                        '<a style="cursor:pointer" class="pop-up" data-id="sfsi_quickpay-overlay" onclick="sfsi_open_quick_checkout(event)" class="sfisi_font_bold" target="_blank">',
+                        '<a style="cursor:pointer" class="pop-up sfisi_font_bold" data-id="sfsi_quickpay-overlay" onclick="sfsi_open_quick_checkout(event)" target="_blank">',
                         '</a><a href="https://www.ultimatelysocial.com/usm-premium/?utm_source=usmi_settings_page&utm_campaign=more_functions_email_icon&utm_medium=banner" class="sfsi_font_inherit" target="_blank">',
                         '</a>'
                     );
@@ -281,12 +281,12 @@ if (isset($option2['sfsi_youtubeusernameorid']) && "id" == $option2['sfsi_youtub
             <div class="sfsi_new_prmium_follw">
                 <?php 
                         printf(
-                            __( '%1s New: %2s In our Premium Plugin you can also allow users to follow you on Facebook  %3s directly from your site %4s (without leaving your page, increasing followers).  %5s Go premium now %6s  or learn more. %7s','ultimate-social-media-icons' ),
+                            __( '%1$s New: %2$s In our Premium Plugin you can also allow users to follow you on Facebook  %3$s directly from your site %4$s (without leaving your page, increasing followers). %5$sGo premium now%6$s or learn more.%7$s','ultimate-social-media-icons' ),
                             '<p><b>',
-                            '</b> ',
+                            '</b>',
                             '<b>',
                             '</b>',
-                            '<a style="cursor:pointer" class="pop-up" data-id="sfsi_quickpay-overlay" onclick="sfsi_open_quick_checkout(event)" class="sfisi_font_bold" target="_blank">',
+                            '<a style="cursor:pointer" class="pop-up sfisi_font_bold" data-id="sfsi_quickpay-overlay" onclick="sfsi_open_quick_checkout(event)" target="_blank">',
                             '</a><a href="https://www.ultimatelysocial.com/usm-premium/?utm_source=usmi_settings_page&utm_campaign=direct_follow_facebook&utm_medium=banner" class="sfsi_font_inherit" target="_blank">',
                             '</a></p>'
                         );
@@ -304,7 +304,7 @@ if (isset($option2['sfsi_youtubeusernameorid']) && "id" == $option2['sfsi_youtub
                 <?php
                         printf(
                             __( 'The Twitter icon can perform several actions. Pick below which ones it should perform. If you select several options, then users can select what they want to do %1s (see an example) %2s ','ultimate-social-media-icons' ),
-                            '<a class="rit_link pop-up" href="javascript:;" data-id="fbex-s2">',
+                            '<a class="rit_link pop-up" href="javascript:;" data-id="twex-s2">',
                             '</a>'
                         );
                 ?>
@@ -324,7 +324,7 @@ if (isset($option2['sfsi_youtubeusernameorid']) && "id" == $option2['sfsi_youtub
                             __( '%1s New: %2s Tweeting becomes really fun in the Premium Plugin – you can insert tags to automatically pull the title of the story & link to the story, attach pictures & snippets to the Tweets (‘Twitter cards’) and user Url-shorteners, all leading to more Tweets and traffic for your site! %3s or learn more. %4s','ultimate-social-media-icons' ),
                             '<p><b>',
                             '</b>',
-                            '<a style="cursor:pointer" class="pop-up" data-id="sfsi_quickpay-overlay" onclick="sfsi_open_quick_checkout(event)" class="sfisi_font_bold" target="_blank">Go premium now</a><a href="https://www.ultimatelysocial.com/usm-premium/?utm_source=usmi_settings_page&utm_campaign=better_tweets&utm_medium=banner" class="sfsi_font_inherit" target="_blank">',
+                            '<a style="cursor:pointer" class="pop-up sfisi_font_bold" data-id="sfsi_quickpay-overlay" onclick="sfsi_open_quick_checkout(event)" target="_blank">Go premium now</a><a href="https://www.ultimatelysocial.com/usm-premium/?utm_source=usmi_settings_page&utm_campaign=better_tweets&utm_medium=banner" class="sfsi_font_inherit" target="_blank">',
                             '</a></p>'
                         );
                 ?>
@@ -342,7 +342,7 @@ if (isset($option2['sfsi_youtubeusernameorid']) && "id" == $option2['sfsi_youtub
                 <?php
                         printf(
                             __( 'The Youtube icon can perform several actions. Pick below which ones it should perform. If you select several options, then users can select what they want to do %1s (see an example) %2s ','ultimate-social-media-icons' ),
-                            '<a class="rit_link pop-up" href="javascript:;" data-id="fbex-s2">',
+                            '<a class="rit_link pop-up" href="javascript:;" data-id="ytex-s2">',
                             '</a>'
                         );
                 ?>
@@ -395,7 +395,7 @@ if (isset($option2['sfsi_youtubeusernameorid']) && "id" == $option2['sfsi_youtub
                 <?php
                         printf(
                             __( ' The Pinterest icon can perform several actions. Pick below which ones it should perform. If you select several options, then users can select what they want to do %1s (see an example) %2s ','ultimate-social-media-icons' ),
-                            '<a class="rit_link pop-up" href="javascript:;" data-id="fbex-s2">',
+                            '<a class="rit_link pop-up" href="javascript:;" data-id="pinex-s2">',
                             '</a>'
                         );
                 ?>
@@ -425,7 +425,7 @@ if (isset($option2['sfsi_youtubeusernameorid']) && "id" == $option2['sfsi_youtub
                 <?php
                         printf(
                             __( ' The LinkedIn icon can perform several actions. Pick below which ones it should perform. If you select several options, then users can select what they want to do %1s (see an example) %2s ','ultimate-social-media-icons' ),
-                            '<a class="rit_link pop-up" href="javascript:;" data-id="fbex-s2">',
+                            '<a class="rit_link pop-up" href="javascript:;" data-id="linkex-s2">',
                             '</a>'
                         );
                 ?>
@@ -473,13 +473,13 @@ if (isset($option2['sfsi_youtubeusernameorid']) && "id" == $option2['sfsi_youtub
             <div class="sfsi_new_prmium_follw">
                 <?php 
                         printf(
-                            __( '%1s New: %2s In our Premium Plugin you can now give your Telegram icon sharing functionality too, e.g. %3s share your website/blog with friends. %4s Go premium now %5s or learn more. %6s','ultimate-social-media-icons' ),
+                            __( '%1$sNew:%2$s In our Premium Plugin you can now give your Telegram icon sharing functionality too, e.g. %3$s share your website/blog with friends. %4$sGo premium now%5$s or learn more.%6$s', 'ultimate-social-media-icons' ),
                             '<p><b>',
                             '</b>',
                             '<b>',
-                            '</b><a style="cursor:pointer" class="pop-up" data-id="sfsi_quickpay-overlay" onclick="sfsi_open_quick_checkout(event)" class="sfisi_font_bold" target="_blank">',
-                            ' </a><a href="https://www.ultimatelysocial.com/usm-premium/?utm_source=usmi_settings_page&utm_campaign=telegram_sharing&utm_medium=banner" class="sfsi_font_inherit" target="_blank"> ',
-                            ' </a></p>'
+                            '</b><a style="cursor:pointer" class="pop-up sfisi_font_bold" data-id="sfsi_quickpay-overlay" onclick="sfsi_open_quick_checkout(event)" target="_blank">',
+                            '</a><a href="https://www.ultimatelysocial.com/usm-premium/?utm_source=usmi_settings_page&utm_campaign=telegram_sharing&utm_medium=banner" class="sfsi_font_inherit" target="_blank"> ',
+                            '</a></p>'
                         );
                 ?>  
             </div>
@@ -492,17 +492,17 @@ if (isset($option2['sfsi_youtubeusernameorid']) && "id" == $option2['sfsi_youtub
     <div class="row wechat_section">
         <h2 class="sfsicls_wechat"><?php _e('WeChat','ultimate-social-media-icons') ?></h2>
         <div class="inr_cont wechat_tab_2">
-            <p>.<?php _e('When clicked on, your website/blog will be shared on WeChat','ultimate-social-media-icons') ?></p>
+            <p><?php _e('When clicked on, your website/blog will be shared on WeChat','ultimate-social-media-icons') ?></p>
             <input name="sfsi_wechatShare_option" checked="true" type="checkbox" value="yes" class="" style="display:none" />
             <div class="sfsi_new_prmium_follw">
             <?php 
                         printf(
-                            __( '%1s New: %2s In our Premium Plugin you can also allow users to %3sfollow you %4s on WeChat  %5s  Go premium now %6s or learn more. %7s','ultimate-social-media-icons' ),
+                            __( '%1$sNew:%2$s In our Premium Plugin you can also allow users to %3$sfollow you%4$s on WeChat. %5$sGo premium now%6$s or learn more.%7$s','ultimate-social-media-icons' ),
                             '<p><b>',
                             '</b>',
                             '<b>',
-                            ' </b>',
-                            '<a style="cursor:pointer" class="pop-up" data-id="sfsi_quickpay-overlay" onclick="sfsi_open_quick_checkout(event)" class="sfisi_font_bold" target="_blank">',
+                            '</b>',
+                            '<a style="cursor:pointer" class="pop-up sfisi_font_bold" data-id="sfsi_quickpay-overlay" onclick="sfsi_open_quick_checkout(event)" target="_blank">',
                             '</a><a href="https://www.ultimatelysocial.com/usm-premium/?utm_source=usmi_settings_page&utm_campaign=wechat_sharing&utm_medium=banner" class="sfsi_font_inherit" target="_blank"> ',
                             '</a></p>'
                         );
@@ -522,11 +522,11 @@ if (isset($option2['sfsi_youtubeusernameorid']) && "id" == $option2['sfsi_youtub
             <div class="sfsi_new_prmium_follw">
             <?php 
                         printf(
-                            __( '%1s New: %2s  In our Premium Plugin you can define what text will get shared, and also give the icon the feature to send you a WhatsApp message. %3s  Go premium now %4s or learn more. %5s','ultimate-social-media-icons' ),
+                            __( '%1$sNew:%2$s In our Premium Plugin you can define what text will get shared, and also give the icon the feature to send you a WhatsApp message. %3$sGo premium now%4$s or learn more.%5$s','ultimate-social-media-icons' ),
                             '<p><b>',
                             '</b>',
-                            '<a style="cursor:pointer" class="pop-up" data-id="sfsi_quickpay-overlay" onclick="sfsi_open_quick_checkout(event)" class="sfisi_font_bold" target="_blank">',
-                            '</a><a href="https://www.ultimatelysocial.com/usm-premium/?utm_source=usmi_settings_page&utm_campaign=whatsapp_sharing&utm_medium=banner" class="sfsi_font_inherit" target="_blank"> ',
+                            '<a style="cursor:pointer" class="pop-up sfisi_font_bold" data-id="sfsi_quickpay-overlay" onclick="sfsi_open_quick_checkout(event)" target="_blank">',
+                            '</a><a href="https://www.ultimatelysocial.com/usm-premium/?utm_source=usmi_settings_page&utm_campaign=whatsapp_sharing&utm_medium=banner" class="sfsi_font_inherit" target="_blank">',
                             '</a></p>'
                         );
                 ?>
@@ -546,17 +546,17 @@ if (isset($option2['sfsi_youtubeusernameorid']) && "id" == $option2['sfsi_youtub
 
             <div class="sfsi_new_prmium_follw">
             <?php 
-                        printf(
-                            __( '%1s New: %2s In our Premium Plugin you can now give Weibo icon other functions too, e.g. %3s  your website/blog, share your website/blog %4s on Weibo. %5s Go premium now %6s or learn more %7s','ultimate-social-media-icons' ),
-                            '<p><b>',
-                            '</b> ',
-                            '<b>',
-                            '</b> ',
-                            ' <a style="cursor:pointer" class="pop-up" data-id="sfsi_quickpay-overlay" onclick="sfsi_open_quick_checkout(event)" class="sfisi_font_bold" target="_blank">',
-                            ' </a><a href="https://www.ultimatelysocial.com/usm-premium/?utm_source=usmi_settings_page&utm_campaign=weibo_like_and_share&utm_medium=banner" class="sfsi_font_inherit" target="_blank"> ',
-                            '</a></p>'
-                        );
-                ?>
+                printf(
+                    __( '%1$sNew:%2$s In our Premium Plugin you can now give Weibo icon other functions too, e.g. %3$syour website/blog, share your website/blog%4$s on Weibo. %5$sGo premium now%6$s or learn more.%7$s','ultimate-social-media-icons' ),
+                    '<p><b>',
+                    '</b>',
+                    '<b>',
+                    '</b>',
+                    '<a style="cursor:pointer" class="pop-up sfisi_font_bold" data-id="sfsi_quickpay-overlay" onclick="sfsi_open_quick_checkout(event)" target="_blank">',
+                    '</a><a href="https://www.ultimatelysocial.com/usm-premium/?utm_source=usmi_settings_page&utm_campaign=weibo_like_and_share&utm_medium=banner" class="sfsi_font_inherit" target="_blank">',
+                    '</a></p>'
+                );
+            ?>
             
             </div>
         </div>
@@ -573,17 +573,17 @@ if (isset($option2['sfsi_youtubeusernameorid']) && "id" == $option2['sfsi_youtub
 
             <div class="sfsi_new_prmium_follw">
             <?php 
-                        printf(
-                            __( '%1sNew: %2s  In our Premium Plugin you can now give your VK icon sharing functionality too, e.g. %3s share your website/blog %4s  with friends. %5s Go premium now %6s or learn more. %7s','ultimate-social-media-icons' ),
-                            '<p><b>',
-                            '</b>',
-                            '<b>',
-                            '</b>',
-                            '<a style="cursor:pointer" class="pop-up" data-id="sfsi_quickpay-overlay" onclick="sfsi_open_quick_checkout(event)" class="sfisi_font_bold" target="_blank">',
-                            '</a><a href="https://www.ultimatelysocial.com/usm-premium/?utm_source=usmi_settings_page&utm_campaign=vk_share&utm_medium=banner" class="sfsi_font_inherit" target="_blank"> ',
-                            '</a></p>'
-                        );
-                ?>
+                printf(
+                    __( '%1$sNew:%2$s In our Premium Plugin you can now give your VK icon sharing functionality too, e.g. %3$sshare your website/blog%4$s with friends. %5$sGo premium now%6$s or learn more.%7$s','ultimate-social-media-icons' ),
+                    '<p><b>',
+                    '</b>',
+                    '<b>',
+                    '</b>',
+                    '<a style="cursor:pointer" class="pop-up sfisi_font_bold" data-id="sfsi_quickpay-overlay" onclick="sfsi_open_quick_checkout(event)" target="_blank">',
+                    '</a><a href="https://www.ultimatelysocial.com/usm-premium/?utm_source=usmi_settings_page&utm_campaign=vk_share&utm_medium=banner" class="sfsi_font_inherit" target="_blank">',
+                    '</a></p>'
+                );
+            ?>
                 
             </div>
         </div>
@@ -600,12 +600,12 @@ if (isset($option2['sfsi_youtubeusernameorid']) && "id" == $option2['sfsi_youtub
             <div class="sfsi_new_prmium_follw">
             <?php 
                         printf(
-                            __( '%1s New: %2s  In our Premium Plugin you can now give OK icon other functions too, e.g. %3s like your website/blog %4s , subscribe/follow you on OK.  %5s Go premium now %6s or learn more. %7s','ultimate-social-media-icons' ),
+                            __( '%1$sNew:%2$s In our Premium Plugin you can now give OK icon other functions too, e.g. %3$slike your website/blog%4$s, subscribe/follow you on OK. %5$sGo premium now%6$s or learn more.%7$s','ultimate-social-media-icons' ),
                             '<p><b>',
                             '</b>',
-                            '<b> ',
+                            '<b>',
                             '</b>',
-                            ' <a style="cursor:pointer" class="pop-up" data-id="sfsi_quickpay-overlay" onclick="sfsi_open_quick_checkout(event)" class="sfisi_font_bold" target="_blank">',
+                            '<a style="cursor:pointer" class="pop-up sfisi_font_bold" data-id="sfsi_quickpay-overlay" onclick="sfsi_open_quick_checkout(event)" target="_blank">',
                             '</a><a href="https://www.ultimatelysocial.com/usm-premium/?utm_source=usmi_settings_page&utm_campaign=ok_like_and_subscribe&utm_medium=banner" class="sfsi_font_inherit" target="_blank">',
                             '</a></p>'
                         );
@@ -652,10 +652,10 @@ if (isset($option2['sfsi_youtubeusernameorid']) && "id" == $option2['sfsi_youtub
             <p>
                 <?php
                         printf(
-                            __( '%1sNew:%2sIn the Premium Plugin you can also give custom icons the feature that when people click on it, they can call you, or send you an SMS.%3sGo premium now%4sor learn more.%5s','ultimate-social-media-icons' ),
+                            __( '%1$sNew:%2$s In the Premium Plugin you can also give custom icons the feature that when people click on it, they can call you, or send you an SMS. %3$sGo premium now%4$s or learn more.%5$s','ultimate-social-media-icons' ),
                             '<b>',
                             '</b>',
-                            '<a style="cursor:pointer" class="pop-up" data-id="sfsi_quickpay-overlay" onclick="sfsi_open_quick_checkout(event)" class="sfisi_font_bold" target="_blank">',
+                            '<a style="cursor:pointer" class="pop-up sfisi_font_bold" data-id="sfsi_quickpay-overlay" onclick="sfsi_open_quick_checkout(event)" target="_blank">',
                             '</a><a href="https://www.ultimatelysocial.com/usm-premium/?utm_source=usmi_settings_page&utm_campaign=call_or_sms_feature_custom_icons&utm_medium=banner" class="sfsi_font_inherit" target="_blank">',
                             '</a>'
                         );

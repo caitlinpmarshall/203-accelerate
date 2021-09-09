@@ -139,7 +139,7 @@ function sfsi_wp_img_count()
 
 function sfsi_check_pinterest_icon_placed()
 {
-	$sfsi_section1 		   =  unserialize(get_option('sfsi_section1_options', false));
+	$sfsi_section1 = maybe_unserialize(get_option('sfsi_section1_options', false));
 	if ($sfsi_section1['sfsi_pinterest_display'] == 'yes') {
 		return true;
 	}

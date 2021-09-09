@@ -4,16 +4,26 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit81ab75aa4d17c297736b9bc1a57f75f6
+class ComposerStaticInit1728123ce4b84a94466060719064d9b6
 {
     public static $prefixLengthsPsr4 = array (
         'N' => 
         array (
+            'NinjaForms\\NinjaForms\\' => 22,
+            'NinjaForms\\Includes\\' => 20,
             'NinjaForms\\Blocks\\' => 18,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
+        'NinjaForms\\NinjaForms\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/',
+        ),
+        'NinjaForms\\Includes\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/includes',
+        ),
         'NinjaForms\\Blocks\\' => 
         array (
             0 => __DIR__ . '/../..' . '/blocks/views/includes',
@@ -21,24 +31,15 @@ class ComposerStaticInit81ab75aa4d17c297736b9bc1a57f75f6
     );
 
     public static $classMap = array (
-        'NinjaForms\\Blocks\\Authentication\\KeyFactory' => __DIR__ . '/../..' . '/blocks/views/includes/Authentication/KeyFactory.php',
-        'NinjaForms\\Blocks\\Authentication\\SecretStore' => __DIR__ . '/../..' . '/blocks/views/includes/Authentication/SecretStore.php',
-        'NinjaForms\\Blocks\\Authentication\\Token' => __DIR__ . '/../..' . '/blocks/views/includes/Authentication/Token.php',
-        'NinjaForms\\Blocks\\Authentication\\TokenFactory' => __DIR__ . '/../..' . '/blocks/views/includes/Authentication/TokenFactory.php',
-        'NinjaForms\\Blocks\\DataBuilder\\FieldsBuilder' => __DIR__ . '/../..' . '/blocks/views/includes/DataBuilder/FieldsBuilder.php',
-        'NinjaForms\\Blocks\\DataBuilder\\FieldsBuilderFactory' => __DIR__ . '/../..' . '/blocks/views/includes/DataBuilder/FieldsBuilderFactory.php',
-        'NinjaForms\\Blocks\\DataBuilder\\FormsBuilder' => __DIR__ . '/../..' . '/blocks/views/includes/DataBuilder/FormsBuilder.php',
-        'NinjaForms\\Blocks\\DataBuilder\\FormsBuilderFactory' => __DIR__ . '/../..' . '/blocks/views/includes/DataBuilder/FormsBuilderFactory.php',
-        'NinjaForms\\Blocks\\DataBuilder\\SubmissionsBuilder' => __DIR__ . '/../..' . '/blocks/views/includes/DataBuilder/SubmissionsBuilder.php',
-        'NinjaForms\\Blocks\\DataBuilder\\SubmissionsBuilderFactory' => __DIR__ . '/../..' . '/blocks/views/includes/DataBuilder/SubmissionsBuilderFactory.php',
+        'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
     );
 
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit81ab75aa4d17c297736b9bc1a57f75f6::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit81ab75aa4d17c297736b9bc1a57f75f6::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInit81ab75aa4d17c297736b9bc1a57f75f6::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit1728123ce4b84a94466060719064d9b6::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit1728123ce4b84a94466060719064d9b6::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInit1728123ce4b84a94466060719064d9b6::$classMap;
 
         }, null, ClassLoader::class);
     }

@@ -13,7 +13,7 @@ function sfsi_options_updater1()
         die();
     }
 
-    $option1 =  unserialize(get_option('sfsi_section1_options', false));
+    $option1 = maybe_unserialize(get_option('sfsi_section1_options', false));
 
     $sfsi_rss_display           = isset($_POST["sfsi_rss_display"]) ? sanitize_text_field($_POST["sfsi_rss_display"]) : 'no';
     $sfsi_email_display         = isset($_POST["sfsi_email_display"]) ? sanitize_text_field($_POST["sfsi_email_display"]) : 'no';
@@ -170,7 +170,7 @@ function sfsi_options_updater2()
     }
     $sfsi_CustomIcon_links    = isset($_POST["sfsi_custom_links"]) ? serialize($esacpedUrls) : '';
 
-    $option2 = unserialize(get_option('sfsi_section2_options', false));
+    $option2 = maybe_unserialize(get_option('sfsi_section2_options', false));
     $up_option2 = array(
         'sfsi_rss_url'              => esc_url($sfsi_rss_url),
         'sfsi_rss_blogName'         => '',
@@ -232,7 +232,7 @@ function sfsi_options_updater2()
 
     );
 
-    $option4 = unserialize(get_option('sfsi_section4_options', false));
+    $option4 = maybe_unserialize(get_option('sfsi_section4_options', false));
     update_option('sfsi_section4_options',  serialize($option4));
     update_option('sfsi_section2_options',  serialize($up_option2));
 
@@ -941,8 +941,8 @@ function sfsi_options_updater9()
 function sfsi_getCounts($for_resposive = false)
 {
     $socialObj              = new sfsi_SocialHelper();
-    $sfsi_section4_options  = unserialize(get_option('sfsi_section4_options', false));
-    $sfsi_section2_options  = unserialize(get_option('sfsi_section2_options', false));
+    $sfsi_section4_options  = maybe_unserialize(get_option('sfsi_section4_options', false));
+    $sfsi_section2_options  = maybe_unserialize(get_option('sfsi_section2_options', false));
     $scounts = array(
         'rss_count'     => '',
         'email_count'   => '',
@@ -1463,15 +1463,15 @@ function sfsi_get_feed_id()
 add_action('wp_ajax_sfsi_save_export', 'sfsi_save_export');
 function sfsi_save_export()
 {
-    $option1 =  unserialize(get_option('sfsi_section1_options', false));
-    $option2 =  unserialize(get_option('sfsi_section2_options', false));
-    $option3 =  unserialize(get_option('sfsi_section3_options', false));
-    $option4 =  unserialize(get_option('sfsi_section4_options', false));
-    $option5 =  unserialize(get_option('sfsi_section5_options', false));
-    $option6 =  unserialize(get_option('sfsi_section6_options', false));
-    $option7 =  unserialize(get_option('sfsi_section7_options', false));
-    $option8 =  unserialize(get_option('sfsi_section8_options', false));
-    $option9 =  unserialize(get_option('sfsi_section9_options', false));
+    $option1 = maybe_unserialize(get_option('sfsi_section1_options', false));
+    $option2 = maybe_unserialize(get_option('sfsi_section2_options', false));
+    $option3 = maybe_unserialize(get_option('sfsi_section3_options', false));
+    $option4 = maybe_unserialize(get_option('sfsi_section4_options', false));
+    $option5 = maybe_unserialize(get_option('sfsi_section5_options', false));
+    $option6 = maybe_unserialize(get_option('sfsi_section6_options', false));
+    $option7 = maybe_unserialize(get_option('sfsi_section7_options', false));
+    $option8 = maybe_unserialize(get_option('sfsi_section8_options', false));
+    $option9 = maybe_unserialize(get_option('sfsi_section9_options', false));
     $sfsi_pluginVersion = get_option("sfsi_installDate");
 
     $save_export_options = array(
@@ -1498,7 +1498,7 @@ function sfsi_installDate()
 {
     $sfsi_installDate_value   = isset($_POST["sfsi_installDate"]) ? $_POST["sfsi_installDate"] : '';
     update_option('sfsi_installDate',  $sfsi_installDate_value);
-    echo  json_encode(array("success"));
+    echo json_encode(array("success"));
     exit;
 }
 
@@ -1542,7 +1542,7 @@ add_action('wp_ajax_sfsi_banner_global_pinterest', 'sfsi_banner_global_pinterest
 function sfsi_banner_global_pinterest()
 {
     $sfsi_banner_global_pinterest_value   = isset($_POST["sfsi_banner_global_pinterest"]) ? $_POST["sfsi_banner_global_pinterest"] : '';
-    $sfsi_banner_global_pinterest = unserialize(get_option('sfsi_banner_global_pinterest', false));
+    $sfsi_banner_global_pinterest = maybe_unserialize(get_option('sfsi_banner_global_pinterest', false));
     $sfsi_banner_global_pinterest['timestamp'] = $sfsi_banner_global_pinterest_value;
     update_option('sfsi_banner_global_pinterest',  serialize($sfsi_banner_global_pinterest));
     echo  json_encode(array("success"));
@@ -1553,7 +1553,7 @@ add_action('wp_ajax_sfsi_banner_global_firsttime_offer', 'sfsi_banner_global_fir
 function sfsi_banner_global_firsttime_offer()
 {
     $sfsi_banner_global_firsttime_offer_value   = isset($_POST["sfsi_banner_global_firsttime_offer"]) ? $_POST["sfsi_banner_global_firsttime_offer"] : '';
-    $sfsi_banner_global_firsttime_offer = unserialize(get_option('sfsi_banner_global_firsttime_offer', false));
+    $sfsi_banner_global_firsttime_offer = maybe_unserialize(get_option('sfsi_banner_global_firsttime_offer', false));
     $sfsi_banner_global_firsttime_offer['timestamp'] = $sfsi_banner_global_firsttime_offer_value;
     update_option('sfsi_banner_global_firsttime_offer',  serialize($sfsi_banner_global_firsttime_offer));
     echo  json_encode(array("success"));
@@ -1564,7 +1564,7 @@ add_action('wp_ajax_sfsi_banner_global_social', 'sfsi_banner_global_social');
 function sfsi_banner_global_social()
 {
     $sfsi_banner_global_social_value   = isset($_POST["sfsi_banner_global_social"]) ? $_POST["sfsi_banner_global_social"] : '';
-    $sfsi_banner_global_social = unserialize(get_option('sfsi_banner_global_social', false));
+    $sfsi_banner_global_social = maybe_unserialize(get_option('sfsi_banner_global_social', false));
     $sfsi_banner_global_social['timestamp'] = $sfsi_banner_global_social_value;
     update_option('sfsi_banner_global_social',  serialize($sfsi_banner_global_social));
     echo  json_encode(array("success"));
@@ -1575,7 +1575,7 @@ add_action('wp_ajax_sfsi_banner_global_load_faster', 'sfsi_banner_global_load_fa
 function sfsi_banner_global_load_faster()
 {
     $sfsi_banner_global_load_faster_value   = isset($_POST["sfsi_banner_global_load_faster"]) ? $_POST["sfsi_banner_global_load_faster"] : '';
-    $sfsi_banner_global_load_faster = unserialize(get_option('sfsi_banner_global_load_faster', false));
+    $sfsi_banner_global_load_faster = maybe_unserialize(get_option('sfsi_banner_global_load_faster', false));
     $sfsi_banner_global_load_faster['timestamp'] = $sfsi_banner_global_load_faster_value;
     update_option('sfsi_banner_global_load_faster',  serialize($sfsi_banner_global_load_faster));
     echo  json_encode(array("success"));
@@ -1586,7 +1586,7 @@ add_action('wp_ajax_sfsi_banner_global_shares', 'sfsi_banner_global_shares');
 function sfsi_banner_global_shares()
 {
     $sfsi_banner_global_shares_value   = isset($_POST["sfsi_banner_global_shares"]) ? $_POST["sfsi_banner_global_shares"] : '';
-    $sfsi_banner_global_shares = unserialize(get_option('sfsi_banner_global_shares', false));
+    $sfsi_banner_global_shares = maybe_unserialize(get_option('sfsi_banner_global_shares', false));
     $sfsi_banner_global_shares['timestamp'] = $sfsi_banner_global_shares_value;
     update_option('sfsi_banner_global_shares',  serialize($sfsi_banner_global_shares));
     echo  json_encode(array("success"));
@@ -1598,7 +1598,7 @@ add_action('wp_ajax_sfsi_banner_global_gdpr', 'sfsi_banner_global_gdpr');
 function sfsi_banner_global_gdpr()
 {
     $sfsi_banner_global_gdpr_value   = isset($_POST["sfsi_banner_global_gdpr"]) ? $_POST["sfsi_banner_global_gdpr"] : '';
-    $sfsi_banner_global_gdpr = unserialize(get_option('sfsi_banner_global_gdpr', false));
+    $sfsi_banner_global_gdpr = maybe_unserialize(get_option('sfsi_banner_global_gdpr', false));
     $sfsi_banner_global_gdpr['timestamp'] = $sfsi_banner_global_gdpr_value;
     update_option('sfsi_banner_global_gdpr',  serialize($sfsi_banner_global_gdpr));
     echo  json_encode(array("success"));
@@ -1609,7 +1609,7 @@ add_action('wp_ajax_sfsi_banner_global_http', 'sfsi_banner_global_http');
 function sfsi_banner_global_http()
 {
     $sfsi_banner_global_http_value   = isset($_POST["sfsi_banner_global_http"]) ? $_POST["sfsi_banner_global_http"] : '';
-    $sfsi_banner_global_http = unserialize(get_option('sfsi_banner_global_http', false));
+    $sfsi_banner_global_http = maybe_unserialize(get_option('sfsi_banner_global_http', false));
     $sfsi_banner_global_http['timestamp'] = $sfsi_banner_global_http_value;
     update_option('sfsi_banner_global_http',  serialize($sfsi_banner_global_http));
     echo  json_encode(array("success"));
@@ -1620,7 +1620,7 @@ add_action('wp_ajax_sfsi_banner_global_upgrade', 'sfsi_banner_global_upgrade');
 function sfsi_banner_global_upgrade()
 {
     $sfsi_banner_global_upgrade_value   = isset($_POST["sfsi_banner_global_upgrade"]) ? $_POST["sfsi_banner_global_upgrade"] : '';
-    $sfsi_banner_global_upgrade = unserialize(get_option('sfsi_banner_global_upgrade', false));
+    $sfsi_banner_global_upgrade = maybe_unserialize(get_option('sfsi_banner_global_upgrade', false));
     $sfsi_banner_global_upgrade['timestamp'] = $sfsi_banner_global_upgrade_value;
     update_option('sfsi_banner_global_upgrade',  serialize($sfsi_banner_global_upgrade));
     echo  json_encode(array("success"));

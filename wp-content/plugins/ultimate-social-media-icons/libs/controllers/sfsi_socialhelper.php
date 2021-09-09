@@ -97,7 +97,7 @@ class sfsi_SocialHelper
 	{
 		if($user == 'follow.it')
 		{
-			$sfsi_section4_options =  unserialize(get_option('sfsi_section4_options',false));
+			$sfsi_section4_options =  maybe_unserialize(get_option('sfsi_section4_options',false));
 			$user = (
 				isset($sfsi_section4_options['sfsi_youtube_channelId']) &&
 				!empty($sfsi_section4_options['sfsi_youtube_channelId'])
@@ -328,14 +328,14 @@ class sfsi_SocialHelper
 	/* create on page twitter share icon with count */
 	public function sfsi_twitterSharewithcount($permalink,$tweettext, $show_count,$rectangular_icon=false)
 	{
-		$sfsi_section4	= unserialize(get_option('sfsi_section4_options', false));
+		$sfsi_section4	= maybe_unserialize(get_option('sfsi_section4_options', false));
 		$tweet_icon = SFSI_PLUGURL . 'images/visit_icons/en_US_Tweet.svg';
 		$socialObj = new sfsi_SocialHelper();
 		$count_html ="";
 		if ($show_count ) {
 			/* get twitter counts */
 			if ($sfsi_section4['sfsi_twitter_countsFrom'] == "source") {
-				$option2	= unserialize(get_option('sfsi_section2_options', false));
+				$option2	= maybe_unserialize(get_option('sfsi_section2_options', false));
 
 				$twitter_user = $option2['sfsi_twitter_followUserName'];
 				$tw_settings = array(
@@ -367,8 +367,8 @@ class sfsi_SocialHelper
 	/* create on page youtube subscribe icon */       
 	public function sfsi_YouTubeSub($yuser)
 	{
-		$option4=  unserialize(get_option('sfsi_section4_options',false));
-		$option2=  unserialize(get_option('sfsi_section2_options',false));
+		$option4=  maybe_unserialize(get_option('sfsi_section4_options',false));
+		$option2=  maybe_unserialize(get_option('sfsi_section2_options',false));
 
 		if($option2['sfsi_youtubeusernameorid'] == 'name')
 		{
@@ -457,7 +457,7 @@ class sfsi_SocialHelper
 	public function sfsi_get_instagramFollowersCount($user_name)
 	{
 		/* get instagram user id */
-		$option4 	= unserialize(get_option('sfsi_section4_options',false));
+		$option4 	= maybe_unserialize(get_option('sfsi_section4_options',false));
 		$token 		= $option4['sfsi_instagram_token'];
 
 		$count 		= 0;
@@ -580,12 +580,12 @@ class sfsi_SocialHelper
 				$feeddata = stripslashes_deep($resp->subscriber_count);
 			}
 			else{
-				$sfsi_premium_instagram_sf_count = unserialize(get_option('sfsi_sf_count',false));
+				$sfsi_premium_instagram_sf_count = maybe_unserialize(get_option('sfsi_sf_count',false));
 				$feeddata = $sfsi_premium_instagram_sf_count["sfsi_sf_count"];
 			}
 		}
 		else{
-			$sfsi_premium_instagram_sf_count = unserialize(get_option('sfsi_sf_count',false));
+			$sfsi_premium_instagram_sf_count = maybe_unserialize(get_option('sfsi_sf_count',false));
 			$feeddata = $sfsi_premium_instagram_sf_count["sfsi_sf_count"];
 		}
 		return $this->format_num($feeddata);
@@ -601,7 +601,7 @@ class sfsi_SocialHelper
 
 	public function  SFSI_getFeedSubscriberFetch($feedid)
 	{
-		$sfsi_instagram_sf_count = unserialize(get_option('sfsi_instagram_sf_count',false));
+		$sfsi_instagram_sf_count = maybe_unserialize(get_option('sfsi_instagram_sf_count',false));
 
 		/*if date is empty (for decrease request count)*/
 	

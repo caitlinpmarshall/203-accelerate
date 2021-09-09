@@ -220,17 +220,17 @@ $style                                    =  ($option9['sfsi_icons_float'] == "y
                         <p style="line-height: 34px;">
 
                             <?php 
-                                    printf(
-                                        __( 'The icons will be floating on your page. If you want them  %1s "sticky" %2s , please check out the %3s Premium Plugin %4s . Also in the Premium Plugin you can show the icons %5s vertically %6s , and give them  %7s different settings for mobile. %8s','ultimate-social-media-icons' ),
-                                    '<b>',   
-                                    '</b>',
-                                        '<a target="_blank" href="https://www.ultimatelysocial.com/usm-premium/"><b>',
-                                        '</b></a>',
-                                        '<b>',
-                                        '</b>',
-                                        '<b>',
-                                        ' </b>'
-                                    );
+                                printf(
+                                    __( 'The icons will be floating on your page. If you want them  %1$s "sticky"%2$s, please check out the %3$s Premium Plugin%4$s. Also in the Premium Plugin you can show the icons%5$s vertically%6$s, and give them  %7$s different settings for mobile. %8$s','ultimate-social-media-icons' ),
+                                '<b>',   
+                                '</b>',
+                                '<a target="_blank" href="https://www.ultimatelysocial.com/usm-premium/"><b>',
+                                '</b></a>',
+                                '<b>',
+                                '</b>',
+                                '<b>',
+                                '</b>'
+                                );
                             ?>
                         </p>
 

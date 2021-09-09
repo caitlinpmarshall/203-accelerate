@@ -2,7 +2,7 @@
 
 /* unserialize all saved option for first options */
 
-$option1 =  unserialize(get_option('sfsi_section1_options', false));
+$option1 = maybe_unserialize(get_option('sfsi_section1_options', false));
 
 /*
 	 * Sanitize, escape and validate values
@@ -226,7 +226,7 @@ $option1['sfsi_whatsapp_display']     = (isset($option1['sfsi_whatsapp_display']
 
             <div class="right_info">
 
-                <p><span><?php _e('It depends:','ultimate-social-media-icons') ?></span><?php _e('Show this icon if you have a Pinterest account (and you should set up one if you publish new pictures regularly – that can increase your traffic significantly).','ultimate-social-media-icons') ?> </p>
+                <p><span><?php _e('It depends: ','ultimate-social-media-icons') ?></span><?php _e('Show this icon if you have a Pinterest account (and you should set up one if you publish new pictures regularly – that can increase your traffic significantly).','ultimate-social-media-icons') ?> </p>
 
             </div>
 
@@ -244,7 +244,7 @@ $option1['sfsi_whatsapp_display']     = (isset($option1['sfsi_whatsapp_display']
 
             <div class="right_info">
 
-                <p><span><?php _e('It depends:','ultimate-social-media-icons') ?></span><?php _e('Show this icon if you have an Instagram account.','ultimate-social-media-icons') ?> </p>
+                <p><span><?php _e('It depends: ','ultimate-social-media-icons') ?></span><?php _e('Show this icon if you have an Instagram account.','ultimate-social-media-icons') ?> </p>
 
             </div>
 
@@ -259,7 +259,7 @@ $option1['sfsi_whatsapp_display']     = (isset($option1['sfsi_whatsapp_display']
             </div>
             <div class="right_info">
 
-                <p><span><?php _e('It depends:','ultimate-social-media-icons') ?></span><?php _e('Show this icon if you want to allow users to share the page via WhatsApp.','ultimate-social-media-icons') ?> </p>
+                <p><span><?php _e('It depends: ','ultimate-social-media-icons') ?></span><?php _e('Show this icon if you want to allow users to share the page via WhatsApp.','ultimate-social-media-icons') ?> </p>
 
             </div>
 
@@ -276,7 +276,7 @@ $option1['sfsi_whatsapp_display']     = (isset($option1['sfsi_whatsapp_display']
 
             <div class="right_info">
 
-                <p><span><?php _e('It depends:','ultimate-social-media-icons') ?></span><?php _e('Show this icon if you have a Telegram account.','ultimate-social-media-icons') ?> </p>
+                <p><span><?php _e('It depends: ','ultimate-social-media-icons') ?></span><?php _e('Show this icon if you have a Telegram account.','ultimate-social-media-icons') ?> </p>
 
             </div>
 
@@ -292,7 +292,7 @@ $option1['sfsi_whatsapp_display']     = (isset($option1['sfsi_whatsapp_display']
             </div>
             <div class="right_info">
 
-                <p><span><?php _e('It depends:','ultimate-social-media-icons') ?></span> <?php _e('Show this icon if you have a VK account.','ultimate-social-media-icons') ?></p>
+                <p><span><?php _e('It depends: ','ultimate-social-media-icons') ?></span> <?php _e('Show this icon if you have a VK account.','ultimate-social-media-icons') ?></p>
 
             </div>
 
@@ -311,7 +311,7 @@ $option1['sfsi_whatsapp_display']     = (isset($option1['sfsi_whatsapp_display']
 
             <div class="right_info">
 
-                <p><span><?php _e('It depends:','ultimate-social-media-icons') ?></span><?php _e('Show this icon if you have an OK account.','ultimate-social-media-icons') ?> </p>
+                <p><span><?php _e('It depends: ','ultimate-social-media-icons') ?></span><?php _e('Show this icon if you have an OK account.','ultimate-social-media-icons') ?> </p>
 
             </div>
 
@@ -327,7 +327,7 @@ $option1['sfsi_whatsapp_display']     = (isset($option1['sfsi_whatsapp_display']
             </div>
             <div class="right_info">
 
-                <p><span><?php _e('It depends:','ultimate-social-media-icons') ?></span> <?php _e('Show this icon if you have a WeChat account.','ultimate-social-media-icons') ?></p>
+                <p><span><?php _e('It depends: ','ultimate-social-media-icons') ?></span> <?php _e('Show this icon if you have a WeChat account.','ultimate-social-media-icons') ?></p>
 
             </div>
 
@@ -345,7 +345,7 @@ $option1['sfsi_whatsapp_display']     = (isset($option1['sfsi_whatsapp_display']
 
             <div class="right_info">
 
-                <p><span><?php _e('It depends:','ultimate-social-media-icons') ?></span><?php _e('Show this icon if you have a Weibo account.','ultimate-social-media-icons') ?> </p>
+                <p><span><?php _e('It depends: ','ultimate-social-media-icons') ?></span><?php _e('Show this icon if you have a Weibo account.','ultimate-social-media-icons') ?> </p>
 
             </div>
 
@@ -387,10 +387,9 @@ $option1['sfsi_whatsapp_display']     = (isset($option1['sfsi_whatsapp_display']
             <?php if ($count <= 5) : ?>
 
                 <li id="c<?php echo $new_element; ?>" class="custom bdr_btm_non sfsi_vertically_center">
-
                     <a class="pop-up" data-id="sfsi_quickpay-overlay" onclick="sfsi_open_quick_checkout(event)" target="_blank">
                         <div class="radio_section tb_4_ck" style="opacity:0.5">
-                            <input type="checkbox" onclick="return false;  value=" yes" class="styled" disabled="true" />
+                            <input type="checkbox" onclick="return false;"  value="yes" class="styled" disabled="true" />
                         </div>
 
                         <span class="custom-img" style="opacity:0.5">

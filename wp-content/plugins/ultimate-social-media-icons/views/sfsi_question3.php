@@ -1,6 +1,6 @@
 <?php
 
-$option9   = unserialize(get_option('sfsi_section9_options', false));
+$option9 = maybe_unserialize(get_option('sfsi_section9_options', false));
 $analyst_cache = (get_option("analyst_cache"));
 $sfsi_willshow_analyst_popup = false;
 if (!is_null($analyst_cache) && isset($analyst_cache["plugin_to_install"])) {
@@ -163,5 +163,3 @@ function sfsi_premium_isSeletcted($givenVal, $value)
 
 		return '';
 }
-
-?>

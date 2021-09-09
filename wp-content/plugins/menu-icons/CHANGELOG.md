@@ -1,5 +1,20 @@
+##### [Version 0.12.9](https://github.com/codeinwp/wp-menu-icons/compare/v0.12.8...v0.12.9) (2021-08-04)
 
- ### v0.12.5 - 2020-08-18 
+* Tested compatibility with WordPress 5.8
+
+##### [Version 0.12.8](https://github.com/codeinwp/wp-menu-icons/compare/v0.12.7...v0.12.8) (2021-05-12)
+
+* Fix issue when the image is not accessible to fetch the width/height metadata.
+
+##### [Version 0.12.7](https://github.com/codeinwp/wp-menu-icons/compare/v0.12.6...v0.12.7) (2021-05-07)
+
+Fix PHP fatal error when uploading SVG with the image uploader
+
+##### [Version 0.12.6](https://github.com/codeinwp/wp-menu-icons/compare/v0.12.5...v0.12.6) (2021-05-05)
+
+* Adds explicit width/height to icons to prevent layout shifts issues
+
+### v0.12.5 - 2020-08-18 
  **Changes:** 
   
  ### v0.12.4 - 2020-07-13 
@@ -46,4 +61,3 @@
  **Changes:** 
  * Change ownership to ThemeIsle.
 * Improves compatibility with various ThemeIsle products.
- 

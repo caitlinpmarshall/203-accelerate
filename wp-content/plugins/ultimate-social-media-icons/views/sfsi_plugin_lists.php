@@ -356,8 +356,8 @@ function sfsi_check_not_show_other_plugin_settings_page($gallery_plugins, $optim
 function sfsi_social_media_counts_active_onhttp()
 {
     // check if user has activated the counts and his homepage has count on fb
-    $sfsi_section4            =  unserialize(get_option('sfsi_section4_options', false));
-    $sfsi_section1            =  unserialize(get_option('sfsi_section1_options', false));
+    $sfsi_section4 = maybe_unserialize(get_option('sfsi_section4_options', false));
+    $sfsi_section1 = maybe_unserialize(get_option('sfsi_section1_options', false));
     if ($sfsi_section1['sfsi_facebook_display'] && $sfsi_section4['sfsi_display_counts'] == "yes" && $sfsi_section4['sfsi_facebook_countsDisplay'] == "yes") {
         return true;
     };

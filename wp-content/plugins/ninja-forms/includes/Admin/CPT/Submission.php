@@ -127,7 +127,7 @@ class NF_Admin_CPT_Submission
         $form_id = isset ( $_REQUEST['form_id'] ) ? absint( $_REQUEST['form_id'] ) : '';
 
         wp_enqueue_script( 'subs-cpt',
-            Ninja_Forms::$url . 'deprecated/assets/js/min/subs-cpt.min.js',
+            Ninja_Forms::$url . 'lib/Legacy/subs-cpt.min.js',
             array( 'jquery', 'jquery-ui-datepicker' ) );
 
         wp_localize_script( 'subs-cpt', 'nf_sub', array( 'form_id' => $form_id ) );
@@ -139,7 +139,7 @@ class NF_Admin_CPT_Submission
             unset( $actions[ 'view' ] );
             unset( $actions[ 'inline hide-if-no-js' ] );
             $export_url = add_query_arg( array( 'action' => 'export', 'post[]' => $sub->ID ) );
-            $actions[ 'export' ] = sprintf( '<a href="%s">%s</a>', $export_url, esc_html__( 'Export', 'ninja-forms' ) );
+            $actions[ 'export' ] = sprintf( '<a href="%s">%s</a>', esc_url( $export_url ), esc_html__( 'Export', 'ninja-forms' ) );
         }
 
         return $actions;

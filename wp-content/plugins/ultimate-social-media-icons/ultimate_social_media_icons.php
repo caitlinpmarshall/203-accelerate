@@ -8,7 +8,7 @@ Author: UltimatelySocial
 Author URI: http://ultimatelysocial.com
 Text Domain: ultimate-social-media-icons
 Domain Path: /languages
-Version: 2.6.6
+Version: 2.6.7
 License: GPLv2 or later
 */
 require_once 'analyst/main.php';
@@ -111,7 +111,8 @@ function sfsi_plugin_redirect()
 //************************************** Setting error reporting STARTS ****************************************//
 function sfsi_error_reporting()
 {
-    $option5 = unserialize(get_option('sfsi_section5_options', false));
+    $option5 = maybe_unserialize(get_option('sfsi_section5_options', false));
+
     if (
         isset($option5['sfsi_icons_suppress_errors'])
         && !empty($option5['sfsi_icons_suppress_errors'])
@@ -331,7 +332,7 @@ function check_sfsfiupdatedoptions()
 
 {
 
-    $option4 =  unserialize(get_option('sfsi_section4_options', false));
+    $option4 = maybe_unserialize(get_option('sfsi_section4_options', false));
 
     if (isset($option4['sfsi_youtubeusernameorid']) && !empty($option4['sfsi_youtubeusernameorid'])) { } else {
 
@@ -367,7 +368,7 @@ function addStyleFunction()
 
 {
 
-    $option8 = unserialize(get_option('sfsi_section8_options', false));
+    $option8 = maybe_unserialize(get_option('sfsi_section8_options', false));
 
     $sfsi_feediid = sanitize_text_field(get_option('sfsi_feed_id'));
 
@@ -630,9 +631,9 @@ function addStyleFunction()
         }
 
         <?php
-            $option5            =  unserialize(get_option('sfsi_section5_options', false));
+            $option5 = maybe_unserialize(get_option('sfsi_section5_options', false));
 
-            if ($option5['sfsi_icons_Alignment_via_shortcode'] == 'left') {
+            if ($option5 && $option5['sfsi_icons_Alignment_via_shortcode'] == 'left') {
                 ?>.sfsi_shortcode_container {
             float: left;
         }
@@ -646,7 +647,7 @@ function addStyleFunction()
         }
 
         <?php
-            } elseif ($option5['sfsi_icons_Alignment_via_shortcode'] == 'right') {
+            } elseif ($option5 && $option5['sfsi_icons_Alignment_via_shortcode'] == 'right') {
                 ?>.sfsi_shortcode_container {
             float: right;
         }
@@ -660,7 +661,7 @@ function addStyleFunction()
         }
 
         <?php
-            } elseif ($option5['sfsi_icons_Alignment_via_shortcode'] == 'center') {
+            } elseif ($option5 && $option5['sfsi_icons_Alignment_via_shortcode'] == 'center') {
                 ?>.sfsi_shortcode_container {
             /* float: right; */
         }
@@ -1407,7 +1408,7 @@ function sfsi_admin_notice()
 
 
             if (isset($_REQUEST['sfsi-banner-global-upgrade']) && $_REQUEST['sfsi-banner-global-upgrade'] == 'true') {
-                $sfsi_banner_global_upgrade = unserialize(get_option('sfsi_banner_global_upgrade', false));
+                $sfsi_banner_global_upgrade = maybe_unserialize(get_option('sfsi_banner_global_upgrade', false));
                 $sfsi_banner_global_upgrade = array(
                     'met_criteria'     =>  $sfsi_banner_global_upgrade['met_criteria'],
                     'banner_appeared' => "yes",
@@ -1418,7 +1419,7 @@ function sfsi_admin_notice()
                 sfsi_check_banner();
             }
             if (isset($_REQUEST['sfsi-banner-global-http']) && $_REQUEST['sfsi-banner-global-http'] == 'true') {
-                $sfsi_banner_global_http = unserialize(get_option('sfsi_banner_global_http', false));
+                $sfsi_banner_global_http = maybe_unserialize(get_option('sfsi_banner_global_http', false));
                 $sfsi_banner_global_http = array(
                     'met_criteria'     =>  $sfsi_banner_global_http['met_criteria'],
                     'banner_appeared' => "yes",
@@ -1429,7 +1430,7 @@ function sfsi_admin_notice()
                 sfsi_check_banner();
             }
             if (isset($_REQUEST['sfsi-banner-global-gdpr']) && $_REQUEST['sfsi-banner-global-gdpr'] == 'true') {
-                $sfsi_banner_global_gdpr = unserialize(get_option('sfsi_banner_global_gdpr', false));
+                $sfsi_banner_global_gdpr = maybe_unserialize(get_option('sfsi_banner_global_gdpr', false));
                 $sfsi_banner_global_gdpr = array(
                     'met_criteria'     => $sfsi_banner_global_gdpr['met_criteria'],
                     'banner_appeared' => "yes",
@@ -1441,7 +1442,7 @@ function sfsi_admin_notice()
             }
 
             if (isset($_REQUEST['sfsi-banner-global-shares']) && $_REQUEST['sfsi-banner-global-shares'] == 'true') {
-                $sfsi_banner_global_shares = unserialize(get_option('sfsi_banner_global_shares', false));
+                $sfsi_banner_global_shares = maybe_unserialize(get_option('sfsi_banner_global_shares', false));
                 $sfsi_banner_global_shares = array(
                     'met_criteria'     => $sfsi_banner_global_shares['met_criteria'],
                     'banner_appeared' => "yes",
@@ -1452,7 +1453,7 @@ function sfsi_admin_notice()
                 sfsi_check_banner();
             }
             if (isset($_REQUEST['sfsi-banner-global-load_faster']) && $_REQUEST['sfsi-banner-global-load_faster'] == 'true') {
-                $sfsi_banner_global_load_faster = unserialize(get_option('sfsi_banner_global_load_faster', false));
+                $sfsi_banner_global_load_faster = maybe_unserialize(get_option('sfsi_banner_global_load_faster', false));
                 $sfsi_banner_global_load_faster = array(
                     'met_criteria'     => $sfsi_banner_global_load_faster['met_criteria'],
                     'banner_appeared' => "yes",
@@ -1463,7 +1464,7 @@ function sfsi_admin_notice()
                 sfsi_check_banner();
             }
             if (isset($_REQUEST['sfsi-banner-global-social']) && $_REQUEST['sfsi-banner-global-social'] == 'true') {
-                $sfsi_banner_global_social = unserialize(get_option('sfsi_banner_global_social', false));
+                $sfsi_banner_global_social = maybe_unserialize(get_option('sfsi_banner_global_social', false));
                 $sfsi_banner_global_social = array(
                     'met_criteria'     =>  $sfsi_banner_global_social['met_criteria'],
                     'banner_appeared' => "yes",
@@ -1474,7 +1475,7 @@ function sfsi_admin_notice()
                 sfsi_check_banner();
             }
             if (isset($_REQUEST['sfsi-banner-global-pinterest']) && $_REQUEST['sfsi-banner-global-pinterest'] == 'true') {
-                $sfsi_banner_global_pinterest = unserialize(get_option('sfsi_banner_global_pinterest', false));
+                $sfsi_banner_global_pinterest = maybe_unserialize(get_option('sfsi_banner_global_pinterest', false));
                 $sfsi_banner_global_pinterest = array(
                     'met_criteria'     => $sfsi_banner_global_pinterest['met_criteria'],
                     'banner_appeared' => "yes",
@@ -1486,7 +1487,7 @@ function sfsi_admin_notice()
             }
             $sfsi_install_time = strtotime(get_option('sfsi_installDate'));
             $sfsi_max_show_time = $sfsi_install_time + (120 * 60);
-            $sfsi_banner_global_firsttime_offer = unserialize(get_option('sfsi_banner_global_firsttime_offer', false));
+            $sfsi_banner_global_firsttime_offer = maybe_unserialize(get_option('sfsi_banner_global_firsttime_offer', false));
             if (
                 (isset($_REQUEST['sfsi-banner-global-firsttime-offer']) && $_REQUEST['sfsi-banner-global-firsttime-offer'] == 'true') || (isset($sfsi_banner_global_firsttime_offer['is_active']) && $sfsi_banner_global_firsttime_offer['is_active'] == "yes" &&  ceil(($sfsi_max_show_time - strtotime(date('Y-m-d h:i:s'))) / 60) <= 0)
             ) {
@@ -1938,7 +1939,7 @@ function sfsi_plugin_redirect()
 
                     $sfsi_error_reporting_notice_txt    = 'We noticed that you have set error reporting to "yes" in wp-config. Our plugin (Ultimate Social Media Icons) switches this to "off" so that no errors are displayed (which may also impact error messages from your theme or other plugins). If you don\'t want that, please select the respective option under question 6 (at the bottom).';
                     $isDismissed   =  get_option('sfsi_error_reporting_notice_dismissed', false);
-                    $option5 = unserialize(get_option('sfsi_section5_options', false));
+                    $option5 = maybe_unserialize(get_option('sfsi_section5_options', false));
                     $sfsi_icons_suppress_errors = isset($option5['sfsi_icons_suppress_errors']) && !empty($option5['sfsi_icons_suppress_errors']) ? $option5['sfsi_icons_suppress_errors'] : false;
                     if (isset($isDismissed) && false == $isDismissed && defined('WP_DEBUG') && false != WP_DEBUG && "yes" == $sfsi_icons_suppress_errors) { ?>
 
@@ -2213,14 +2214,14 @@ function sfsi_plugin_redirect()
             $sfsi_fb_count =  get_option('sfsi_fb_count', false);
             $sfsi_fb_count_check_for_shares =  $sfsi_fb_count > 0;
 
-            // $sfsi_banner_global_firsttime_offer = unserialize(get_option('sfsi_banner_global_firsttime_offer', false));
-            $sfsi_banner_global_pinterest = unserialize(get_option('sfsi_banner_global_pinterest', false));
-            $sfsi_banner_global_social = unserialize(get_option('sfsi_banner_global_social', false));
-            $sfsi_banner_global_load_faster = unserialize(get_option('sfsi_banner_global_load_faster', false));
-            $sfsi_banner_global_shares = unserialize(get_option('sfsi_banner_global_shares', false));
-            $sfsi_banner_global_gdpr = unserialize(get_option('sfsi_banner_global_gdpr', false));
-            $sfsi_banner_global_http = unserialize(get_option('sfsi_banner_global_http', false));
-            $sfsi_banner_global_upgrade = unserialize(get_option('sfsi_banner_global_upgrade', false));
+            // $sfsi_banner_global_firsttime_offer = maybe_unserialize(get_option('sfsi_banner_global_firsttime_offer', false));
+            $sfsi_banner_global_pinterest = maybe_unserialize(get_option('sfsi_banner_global_pinterest', false));
+            $sfsi_banner_global_social = maybe_unserialize(get_option('sfsi_banner_global_social', false));
+            $sfsi_banner_global_load_faster = maybe_unserialize(get_option('sfsi_banner_global_load_faster', false));
+            $sfsi_banner_global_shares = maybe_unserialize(get_option('sfsi_banner_global_shares', false));
+            $sfsi_banner_global_gdpr = maybe_unserialize(get_option('sfsi_banner_global_gdpr', false));
+            $sfsi_banner_global_http = maybe_unserialize(get_option('sfsi_banner_global_http', false));
+            $sfsi_banner_global_upgrade = maybe_unserialize(get_option('sfsi_banner_global_upgrade', false));
 
             // $sfsi_banner_global_firsttime_offer_criteria = true;
             $sfsi_banner_global_pinterest_criteria = ((sfsi_count_media_item() > 2) || (sfsi_pinterest_icon_shown()) || sfsi_has_gallery_plugin_activated($gallery_plugins));
@@ -2405,17 +2406,17 @@ function sfsi_plugin_redirect()
         }
         function sfsi_pinterest_icon_shown()
         {
-            $sfsi_section1       =  unserialize(get_option('sfsi_section1_options', false));
-            $option9 =  unserialize(get_option('sfsi_section9_options', false));
-            $option6 =  unserialize(get_option('sfsi_section6_options', false));
-            // var_dump($option9["sfsi_icons_float"]);
-            // var_dump($option9["sfsi_show_via_widget"]);
-            // var_dump($option9["sfsi_show_via_shortcode"]);
-            // var_dump($sfsi_section1["sfsi_pinterest_display"]);
-            // var_dump($option6["sfsi_show_Onposts"]);
-            // var_dump($option6["sfsi_rectpinit"]);
-            // var_dump($option9["sfsi_show_via_afterposts"]);
-            //check if icons are displayed
+            $sfsi_section1 = maybe_unserialize(get_option('sfsi_section1_options', false));
+            $option9 = maybe_unserialize(get_option('sfsi_section9_options', false));
+            $option6 = maybe_unserialize(get_option('sfsi_section6_options', false));
+            /*var_dump($option9["sfsi_icons_float"]);
+            var_dump($option9["sfsi_show_via_widget"]);
+            var_dump($option9["sfsi_show_via_shortcode"]);
+            var_dump($sfsi_section1["sfsi_pinterest_display"]);
+            var_dump($option6["sfsi_show_Onposts"]);
+            var_dump($option6["sfsi_rectpinit"]);
+            var_dump($option9["sfsi_show_via_afterposts"]);
+            check if icons are displayed*/
             if (
                 (
                     (
@@ -2431,7 +2432,7 @@ function sfsi_plugin_redirect()
         function sfsi_mobile_icons_shown()
         {
             /// check if mobile icons are shown and mobile icons are present on the homepage.
-            $sfsi_section9            =  unserialize(get_option('sfsi_section9_options', false));
+            $sfsi_section9 = maybe_unserialize(get_option('sfsi_section9_options', false));
             if ($sfsi_section9['sfsi_disable_floaticons'] == "yes") {
                 return true;
             }

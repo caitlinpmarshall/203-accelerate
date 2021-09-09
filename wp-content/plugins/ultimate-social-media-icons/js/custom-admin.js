@@ -2306,10 +2306,14 @@ SFSI(document).ready(function (s) {
             ("fbex-s2" == SFSI(this).attr("data-id") || "linkex-s2" == SFSI(this).attr("data-id")) && (SFSI("." + SFSI(this).attr("data-id")).hide(),
                 SFSI("." + SFSI(this).attr("data-id")).css("opacity", "1"), SFSI("." + SFSI(this).attr("data-id")).css("z-index", "1000")),
             SFSI("." + SFSI(this).attr("data-id")).show("slow");
+            SFSI('body').addClass( 'SFSI-overlay' );
         }),
         /*SFSI("#close_popup").live("click", function() {*/
         SFSI(document).on("click", '#close_popup', function () {
             SFSI(".read-overlay").hide("slow");
+            setTimeout(function(){
+                SFSI('body').removeClass( 'SFSI-overlay' );
+            },1000);
         });
 
     var e = 0;

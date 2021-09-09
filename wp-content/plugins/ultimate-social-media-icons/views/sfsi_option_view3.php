@@ -2,9 +2,8 @@
 
 /* unserialize all saved option for second section options */
 
-$option3 =  unserialize(get_option('sfsi_section3_options', false));
-
-$option1 =  unserialize(get_option('sfsi_section1_options', false));
+$option3 = maybe_unserialize(get_option('sfsi_section3_options', false));
+$option1 = maybe_unserialize(get_option('sfsi_section1_options', false));
 
 /*
 
@@ -51,7 +50,7 @@ $mouseover_other_icons_transition_effect = (isset($option3['mouseover_other_icon
     <p style="padding:0px;">
             <?php 
                         printf(
-                            __( 'The icons have been compressed by%1sShortpixel.com%2sfor faster loading of your site. Thank you Shortpixel!','ultimate-social-media-icons' ),
+                            __( 'The icons have been compressed by %1sShortpixel.com%2s for faster loading of your site. Thank you Shortpixel!','ultimate-social-media-icons' ),
                             '<a href="https://goo.gl/IV5Q3z" target="_blank">',
                             '</a>'
                         );
@@ -359,10 +358,10 @@ $mouseover_other_icons_transition_effect = (isset($option3['mouseover_other_icon
                             <a style="color: #12a252 !important;font-weight: bold; border-bottom:none;text-decoration: none;">
                                 <?php _e('Premium Feature:','ultimate-social-media-icons') ?>
                             </a>
-                            <span><?php _e('Upload any icons you want ','ultimate-social-media-icons') ?><a class="pop-up" style="cursor:pointer; color: #12a252 !important;border-bottom: 1px solid #12a252;text-decoration: none;font-weight: bold;" data-id="sfsi_quickpay-overlay" onclick="sfsi_open_quick_checkout(event)" target="_blank">
-                                <?php _e('Get it now.','ultimate-social-media-icons') ?> 
+                            <span><?php _e('Upload any icons you want.','ultimate-social-media-icons') ?> <a class="pop-up" style="cursor:pointer; color: #12a252 !important;border-bottom: 1px solid #12a252;text-decoration: none;font-weight: bold;" data-id="sfsi_quickpay-overlay" onclick="sfsi_open_quick_checkout(event)" target="_blank">
+                                <?php _e('Get it now.','ultimate-social-media-icons') ?></a>
                             <!-- </a>&nbsp;  Custom design for the social media platforms implemented in the plugin under question number 1 - </span> -->
-                            <!-- <a class="pop-up" style="cursor:pointer; color: #12a252 !important;border-bottom: 1px solid #12a252;text-decoration: none;font-weight: bold;" data-id="sfsi_quickpay-overlay" onclick="sfsi_open_quick_checkout(event)" target="_blank">
+                            <!-- <a class="pop-up" style="cursor:pointer; color: #12a252 !important;border-bottom: 1px solid #12a252;text-decoration: none;font-weight: bold;" href="https://www.ultimatelysocial.com/usm-premium/?withqp=1&utm_source=usmi_settings_page&utm_campaign=top_banner&utm_medium=link" target="_blank">
                                 Get it now.
                             </a> -->
                         </p>
@@ -380,14 +379,14 @@ $mouseover_other_icons_transition_effect = (isset($option3['mouseover_other_icon
                     <div>
                         <p style="margin-top: 3px;">
                             
-                                    <?php 
-                                        printf(
-                                            __( '%1sLet us create icons matching your site perfectly (both in terms of colors and shape%2sLearn more.%3s).','ultimate-social-media-icons' ),
-                                            '<span>',
-                                            '</span><a href="https://sellcodes.com/0AL0J23f" style="cursor:pointer; color: #12a252 !important;border-bottom: 1px solid #12a252;text-decoration: none;font-weight: bold;" target="_blank">',
-                                            '</a>'
-                                        );
-                                    ?>
+                            <?php 
+                                printf(
+                                    __( '%1$sLet us create icons matching your site perfectly (both in terms of colors and shape). %2$sLearn more.%3$s','ultimate-social-media-icons' ),
+                                    '<span>',
+                                    '</span><a href="https://sellcodes.com/0AL0J23f" style="cursor:pointer; color: #12a252 !important;border-bottom: 1px solid #12a252;text-decoration: none;font-weight: bold;" target="_blank">',
+                                    '</a>'
+                                );
+                            ?>
                         </p>
                     </div>
                 </li>
@@ -405,7 +404,7 @@ $mouseover_other_icons_transition_effect = (isset($option3['mouseover_other_icon
                 <p style="font-weight: bold; margin: 12px 0 0;">
                         <?php 
                                 printf(
-                                        __( 'Need icons for another theme? Let us know in the%1sSupport Forum).%2s','ultimate-social-media-icons' ),
+                                        __( 'Need icons for another theme? Let us know in the %1$sSupport Forum%2$s.', 'ultimate-social-media-icons' ),
                                         '<a target="_blank" href="https://wordpress.org/support/plugin/ultimate-social-media-icons/#new-topic-0" style="color:#8E81BD; text-decoration:underline;">',
                                         '</a>'
                                 );

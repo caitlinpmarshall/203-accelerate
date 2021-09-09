@@ -17,7 +17,7 @@
  * Text Domain: menu-item-custom-fields
  */
 
-if ( ! class_exists( 'Menu_Item_Custom_Fields' ) && ! version_compare( get_bloginfo( 'version' ), '5.4', '>=' ) ) :
+if ( ! class_exists( 'Menu_Item_Custom_Fields' ) && ( function_exists('get_bloginfo') && ! version_compare( get_bloginfo( 'version' ), '5.4', '>=' ) ) ) :
 	/**
 	* Menu Item Custom Fields Loader
 	*/

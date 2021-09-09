@@ -1,12 +1,12 @@
 <?php
 /* unserialize all saved option for  section 6 options */
 
-$option6 =  unserialize(get_option('sfsi_section6_options', false));
+$option6 = maybe_unserialize(get_option('sfsi_section6_options', false));
 
 /**
-
+ *
  * Sanitize, escape and validate values
-
+ *
  */
 
 $option6['sfsi_show_Onposts']     = (isset($option6['sfsi_show_Onposts'])) ? sanitize_text_field($option6['sfsi_show_Onposts']) : 'no';
@@ -114,7 +114,7 @@ if (!isset($option6['sfsi_rectfbshare'])) {
               <?php _e("Display the icons I selected above",'ultimate-social-media-icons') ?>
               </label>
             </li>
-            <p class="clear sfsi_border_left_0" style="width: 80%;width:calc( 100% - 102px );font-family:helveticaneue-light;font-size: 18px;color: #5a6570!important;margin: 10px 27px;margin-bottom: 0!important;margin-left:22px!important;padding-left: 0!important">Greyed-out options are available only in the <a class="pop-up" data-id="sfsi_quickpay-overlay" onclick="sfsi_open_quick_checkout(event)" class="sfisi_font_bold" style="border-bottom: 1px solid #12a252;color: #12a252 !important;cursor:pointer;font-size:18px;" target="_blank">Premium Plugin</a></p>
+            <p class="clear sfsi_border_left_0" style="width: 80%;width:calc( 100% - 102px );font-family:helveticaneue-light;font-size: 18px;color: #5a6570!important;margin: 10px 27px;margin-bottom: 0!important;margin-left:22px!important;padding-left: 0!important">Greyed-out options are available only in the <a class="pop-up" href="https://www.ultimatelysocial.com/usm-premium/?withqp=1&utm_source=usmi_settings_page&utm_campaign=top_banner&utm_medium=link" class="sfisi_font_bold" style="color: #12a252 !important;cursor:pointer;font-size:18px;" target="_blank"><?php _e( 'Premium Plugin', 'ultimate-social-media-icons' ); ?></a></p>
             <?php $display = ($option6['sfsi_display_button_type'] == 'responsive_button') ? "display:block;border-left:0!important":"display:none;border-left:0!important"; ?>
             <li class="sfsi_toggleonlyrspvshrng" style="margin-left:20px;<?php echo $display; ?>">
             <label style="width: 80%;width:calc( 100% - 102px );font-family: helveticaneue-light;font-size: 18px;color: #5a6570;margin: 10px 0px;margin-top:-15px!important; padding-top:0!important">
@@ -245,10 +245,16 @@ if (!isset($option6['sfsi_rectfbshare'])) {
                   <li></li>
                 </ul>
                 <?php if ($option6['sfsi_show_premium_placement_box'] == 'yes') { ?>
-                  <p class="sfsi_prem_plu_desc " style="float:left">
-                    <b><?php _e("New: ",'ultimate-social-media-icons') ?></b> <?php _e("We also added a Linkedin share-icon in the Premium Plugin.  ",'ultimate-social-media-icons') ?><a class="pop-up" data-id="sfsi_quickpay-overlay" onclick="sfsi_open_quick_checkout(event)" class="sfisi_font_bold" style="border-bottom: 1px solid #12a252;color: #12a252 !important;cursor:pointer;font-size:18px;" target="_blank"><?php _e("Go premium now",'ultimate-social-media-icons') ?></a><a href="https://www.ultimatelysocial.com/usm-premium/?utm_source=usm_settings_page&utm_campaign=linkedin_icon&utm_medium=banner" class="sfsi_font_inherit" style="color: #12a252 !important" target="_blank"><?php _e(" or ",'ultimate-social-media-icons') ?>
-                      <?php _e("learn more",'ultimate-social-media-icons') ?></a>
-                  </p>
+                  <p class="sfsi_prem_plu_desc" style="float:left"><?php 
+                    printf(
+                      __( '%1$sNew:%2$s We also added a Linkedin share-icon in the Premium Plugin. %3$sGo premium now%4$s or learn more.%5$s', 'ultimate-social-media-icons' ),
+                      '<b>',
+                      '</b>',
+                      '<a style="border-bottom: 1px solid #12a252;color: #12a252 !important;cursor:pointer;font-size:18px;" class="pop-up sfisi_font_bold" data-id="sfsi_quickpay-overlay" onclick="sfsi_open_quick_checkout(event)" target="_blank">',
+                      '</a><a href="https://www.ultimatelysocial.com/usm-premium/?utm_source=usm_settings_page&utm_campaign=linkedin_icon&utm_medium=banner" class="sfsi_font_inherit" style="color: #12a252 !important" target="_blank">',
+                      '</a>'
+                    );
+                  ?></p>
                 <?php } ?>
 
                 <div class="row PostsSettings_section">
@@ -311,7 +317,7 @@ if (!isset($option6['sfsi_rectfbshare'])) {
                   <p><b><?php _e("New:",'ultimate-social-media-icons') ?></b><?php _e("In our Premium Plugin you have many more placement options, e.g.
                     place the icons you selected under question 1, place them also on your homepage
                     (instead of only post’s pages), place them before posts (instead of only after
-                    posts) etc.",'ultimate-social-media-icons') ?>  <a style="cursor:pointer" class="pop-up" data-id="sfsi_quickpay-overlay" onclick="sfsi_open_quick_checkout(event)" class="sfisi_font_bold" target="_blank"><?php _e("See all features",'ultimate-social-media-icons') ?></a>
+                    posts) etc.",'ultimate-social-media-icons') ?>  <a style="cursor:pointer" class="pop-up" href="https://www.ultimatelysocial.com/usm-premium/?withqp=1&utm_source=usmi_settings_page&utm_campaign=top_banner&utm_medium=link" class="sfisi_font_bold" target="_blank"><?php _e("See all features",'ultimate-social-media-icons') ?></a>
                     <!-- <a href="https://www.ultimatelysocial.com/usm-premium/?https://www.ultimatelysocial.com/usm-premium/?utm_source=usmi_settings_page&utm_campaign=more_placement_options&utm_medium=banner" class="sfsi_font_inherit" target="_blank"> or learn more.</a> -->
                   </p>
                 </div>

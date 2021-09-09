@@ -389,14 +389,14 @@
     <button type="button" id="sfsi_loyaltyDate" data-nonce="<?php // echo $noncec; ?>"> click</button>
 </div>
 <?php //
-// $sfsi_banner_global_firsttime_offer = unserialize(get_option('sfsi_banner_global_firsttime_offer', false));
-// $sfsi_banner_global_pinterest = unserialize(get_option('sfsi_banner_global_pinterest', false));
-// $sfsi_banner_global_social = unserialize(get_option('sfsi_banner_global_social', false));
-// $sfsi_banner_global_load_faster = unserialize(get_option('sfsi_banner_global_load_faster', false));
-// $sfsi_banner_global_shares = unserialize(get_option('sfsi_banner_global_shares', false));
-// $sfsi_banner_global_gdpr = unserialize(get_option('sfsi_banner_global_gdpr', false));
-// $sfsi_banner_global_http = unserialize(get_option('sfsi_banner_global_http', false));
-// $sfsi_banner_global_upgrade = unserialize(get_option('sfsi_banner_global_upgrade', false));
+// $sfsi_banner_global_firsttime_offer = maybe_unserialize(get_option('sfsi_banner_global_firsttime_offer', false));
+// $sfsi_banner_global_pinterest = maybe_unserialize(get_option('sfsi_banner_global_pinterest', false));
+// $sfsi_banner_global_social = maybe_unserialize(get_option('sfsi_banner_global_social', false));
+// $sfsi_banner_global_load_faster = maybe_unserialize(get_option('sfsi_banner_global_load_faster', false));
+// $sfsi_banner_global_shares = maybe_unserialize(get_option('sfsi_banner_global_shares', false));
+// $sfsi_banner_global_gdpr = maybe_unserialize(get_option('sfsi_banner_global_gdpr', false));
+// $sfsi_banner_global_http = maybe_unserialize(get_option('sfsi_banner_global_http', false));
+// $sfsi_banner_global_upgrade = maybe_unserialize(get_option('sfsi_banner_global_upgrade', false));
 ?>-->
 <!-- 
 <div style="clear:both">

@@ -2,7 +2,7 @@
 Contributors: codeinwp, themeisle
 Tags: menu, nav-menu, icons, navigation
 Requires at least: 4.3
-Tested up to: 5.4
+Tested up to: 5.8
 Stable tag: trunk
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -224,31 +224,54 @@ add_filter( 'menu_icons_menu_settings', 'my_menu_icons_menu_settings', 10, 2 );
 Read [this blog post](http://kucrut.org/add-custom-image-sizes-right-way/).
 
 == Changelog ==
-= 0.12.5 - 2020-08-18  = 
+
+##### [Version 0.12.9](https://github.com/codeinwp/wp-menu-icons/compare/v0.12.8...v0.12.9) (2021-08-04)
+
+* Tested compatibility with WordPress 5.8
 
 
 
-= 0.12.4 - 2020-07-13  = 
+
+##### [Version 0.12.8](https://github.com/codeinwp/wp-menu-icons/compare/v0.12.7...v0.12.8) (2021-05-12)
+
+* Fix issue when the image is not accessible to fetch the width/height metadata.
+
+
+
+
+##### [Version 0.12.7](https://github.com/codeinwp/wp-menu-icons/compare/v0.12.6...v0.12.7) (2021-05-07)
+
+Fix PHP fatal error when uploading SVG with the image uploader
+
+
+
+
+##### [Version 0.12.6](https://github.com/codeinwp/wp-menu-icons/compare/v0.12.5...v0.12.6) (2021-05-05)
+
+* Adds explicit width/height to icons to prevent layout shifts issues
+
+
+= 0.12.4 - 2020-07-13  =
 
 * Fix Font Awesome not loading
 
 
-= 0.12.3 - 2020-07-13  = 
+= 0.12.3 - 2020-07-13  =
 
 * Fixed Menu Icons in Block Editor not working
 * Fixed CWP links.
 
 
-= 0.12.2 - 2019-11-15  = 
+= 0.12.2 - 2019-11-15  =
 
 
 
-= 0.12.1 - 2019-11-15  = 
+= 0.12.1 - 2019-11-15  =
 
 * Improve legacy compatibility
 
 
-= 0.12.0 - 2019-11-15  = 
+= 0.12.0 - 2019-11-15  =
 
 * Fix issues with WordPress 5.3.
 

@@ -28,7 +28,7 @@ if($sfsi_show_via_widget =='yes'){
 		<p style="margin-bottom: -33px">
 			<span class="sfsi_toglepstpgspn"><?php _e("Show them via a widget",'ultimate-social-media-icons') ?></span><br>
 			
-			<label  <?php echo $label_style; ?> class="sfsiplus_sub-subtitle ckckslctn"><?php _e("Go to the ",'ultimate-social-media-icons') ?><a href="<?php echo admin_url('widgets.php');?>"><?php _e("widget area",'ultimate-social-media-icons') ?></a><?php _e("and drag & drop it where you want to show them!",'ultimate-social-media-icons') ?> 
+			<label  <?php echo $label_style; ?> class="sfsiplus_sub-subtitle ckckslctn"><?php _e("Go to the ",'ultimate-social-media-icons') ?><a href="<?php echo admin_url('widgets.php');?>"><?php _e("widget area",'ultimate-social-media-icons') ?></a><?php _e(" and drag & drop it where you want to show them!",'ultimate-social-media-icons') ?> 
 				
 			</label>
 		</p>

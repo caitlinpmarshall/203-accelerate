@@ -15,7 +15,7 @@ function sfsi_check_PopUp($content)
 
     $content = '';
 
-    $sfsi_section7_options =  unserialize(get_option('sfsi_section7_options', false));
+    $sfsi_section7_options = maybe_unserialize(get_option('sfsi_section7_options', false));
 
     if (isset($sfsi_section7_options['sfsi_Show_popupOn']) && !empty($sfsi_section7_options['sfsi_Show_popupOn'])) {
 
@@ -103,16 +103,16 @@ function sfsi_FrontPopupDiv()
 {
     global $wpdb;
     /* get all settings for icons saved in admin */
-    $sfsi_section1_options =  unserialize(get_option('sfsi_section1_options', false));
+    $sfsi_section1_options = maybe_unserialize(get_option('sfsi_section1_options', false));
     $custom_i = unserialize($sfsi_section1_options['sfsi_custom_files']);
     if ($sfsi_section1_options['sfsi_rss_display'] == 'no' &&  $sfsi_section1_options['sfsi_email_display'] == 'no' && $sfsi_section1_options['sfsi_facebook_display'] == 'no' && $sfsi_section1_options['sfsi_twitter_display'] == 'no' && $sfsi_section1_options['sfsi_youtube_display'] == 'no' && $sfsi_section1_options['sfsi_pinterest_display'] == 'no' && $sfsi_section1_options['sfsi_linkedin_display'] == 'no' && empty($custom_i)) {
         $icons = '';
         return $icons;
         exit;
     }
-    $sfsi_section7_options =  unserialize(get_option('sfsi_section7_options', false));
-    $sfsi_section5 =  unserialize(get_option('sfsi_section5_options', false));
-    $sfsi_section4 =  unserialize(get_option('sfsi_section4_options', false));
+    $sfsi_section7_options = maybe_unserialize(get_option('sfsi_section7_options', false));
+    $sfsi_section5 = maybe_unserialize(get_option('sfsi_section5_options', false));
+    $sfsi_section4 = maybe_unserialize(get_option('sfsi_section4_options', false));
     /* calculate the width and icons display alignments */
     $heading_text = (isset($sfsi_section7_options['sfsi_popup_text'])) ? $sfsi_section7_options['sfsi_popup_text'] : 'Enjoy this site? Please follow and like us!';
     $div_bgColor = (isset($sfsi_section7_options['sfsi_popup_background_color'])) ? $sfsi_section7_options['sfsi_popup_background_color'] : '#fff';

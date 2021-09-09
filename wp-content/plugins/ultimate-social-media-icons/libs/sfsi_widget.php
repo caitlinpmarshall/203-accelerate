@@ -32,8 +32,8 @@ class Sfsi_Widget extends WP_Widget
 		$title 		= isset($instance['title']) ? apply_filters('widget_title', $instance['title']) : '';
 		// var_dump($title,'ldfjgkdfj');
 		$show_info  = isset($instance['show_info']) ? $instance['show_info'] : false;
-		$sfsi_section5 		   =  unserialize(get_option('sfsi_section5_options', false));
-		$icons_alignment_widget           = isset($sfsi_section5["sfsi_icons_Alignment_via_widget"]) ? sanitize_text_field($sfsi_section5["sfsi_icons_Alignment_via_widget"]) : 'center';
+		$sfsi_section5 = maybe_unserialize(get_option('sfsi_section5_options', false));
+		$icons_alignment_widget = isset($sfsi_section5["sfsi_icons_Alignment_via_widget"]) ? sanitize_text_field($sfsi_section5["sfsi_icons_Alignment_via_widget"]) : 'center';
 		if ($icons_alignment_widget == "right") {
 			$icons_alignment_widget = "flex-end";
 		}
@@ -110,10 +110,10 @@ class Sfsi_Widget extends WP_Widget
 		{
 			global $wpdb;
 			/* Access the saved settings in database  */
-			$sfsi_section1_options =  unserialize(get_option('sfsi_section1_options', false));
-			$sfsi_section3 		   =  unserialize(get_option('sfsi_section3_options', false));
-			$sfsi_section5 		   =  unserialize(get_option('sfsi_section5_options', false));
-			$sfsi_section9 		   =  unserialize(get_option('sfsi_section9_options', false));
+			$sfsi_section1_options = maybe_unserialize(get_option('sfsi_section1_options', false));
+			$sfsi_section3 		   = maybe_unserialize(get_option('sfsi_section3_options', false));
+			$sfsi_section5 		   = maybe_unserialize(get_option('sfsi_section5_options', false));
+			$sfsi_section9 		   = maybe_unserialize(get_option('sfsi_section9_options', false));
 
 			/* calculate the width and icons display alignments */
 			$icons_space 	 	   = $sfsi_section5['sfsi_icons_spacing'];
@@ -224,12 +224,14 @@ class Sfsi_Widget extends WP_Widget
 			}
  
 			$extra = 0;
+			/* Shuffle interval returning 0 instead of "yes" and for "no" ists working fine */
+			/* Thats why 0 is used in place of "yes" for checking shuffle_interval checkbox */
 			if ($sfsi_section3['sfsi_shuffle_icons'] == "yes") {
-				if ($sfsi_section3['sfsi_shuffle_Firstload'] == "yes" && $sfsi_section3['sfsi_shuffle_interval'] == "yes") { 
+				if ($sfsi_section3['sfsi_shuffle_Firstload'] == "yes" && $sfsi_section3['sfsi_shuffle_interval'] == 0) { 
 					$shuffle_time = (isset($sfsi_section3['sfsi_shuffle_intervalTime'])) ? $sfsi_section3['sfsi_shuffle_intervalTime'] : 3;
 					$shuffle_time = $shuffle_time * 1000;
 					$jquery .= "jQuery( document ).ready(function( $ ) {  jQuery('.sfsi_wDiv').each(function(){ new window.Manipulator( jQuery(this)); });  setTimeout(function(){sfsi_shuffle();  jQuery('#sfsi_wDiv').each(function(){ jQuery(this).click(); })},2000);  setInterval(function(){  jQuery('#sfsi_wDiv').each(function(){ jQuery(this).click(); })}," . $shuffle_time . "); });";
-				} else if ($sfsi_section3['sfsi_shuffle_Firstload'] == "no" && $sfsi_section3['sfsi_shuffle_interval'] == "yes") {
+				} else if ($sfsi_section3['sfsi_shuffle_Firstload'] == "no" && $sfsi_section3['sfsi_shuffle_interval'] == 0) {
 					$shuffle_time = (isset($sfsi_section3['sfsi_shuffle_intervalTime'])) ? $sfsi_section3['sfsi_shuffle_intervalTime'] : 3;
 					$shuffle_time = $shuffle_time * 1000;
 					$jquery .= "jQuery( document ).ready(function( $ ) {  jQuery('.sfsi_wDiv').each(function(){ new window.Manipulator( jQuery(this)); });  setInterval(function(){sfsi_shuffle();  jQuery('#sfsi_wDiv').each(function(){ jQuery(this).click(); })}," . $shuffle_time . "); });";
@@ -409,13 +411,13 @@ class Sfsi_Widget extends WP_Widget
 			$class = '';
 
 			/* access  all saved settings in admin */
-			$sfsi_section1_options =  unserialize(get_option('sfsi_section1_options', false));
-			$sfsi_section2_options =  unserialize(get_option('sfsi_section2_options', false));
-			$sfsi_section3_options =  unserialize(get_option('sfsi_section3_options', false));
-			$sfsi_section4_options =  unserialize(get_option('sfsi_section4_options', false));
-			$sfsi_section5_options =  unserialize(get_option('sfsi_section5_options', false));
-			$sfsi_section6_options =  unserialize(get_option('sfsi_section6_options', false));
-			$sfsi_section7_options =  unserialize(get_option('sfsi_section7_options', false));
+			$sfsi_section1_options = maybe_unserialize(get_option('sfsi_section1_options', false));
+			$sfsi_section2_options = maybe_unserialize(get_option('sfsi_section2_options', false));
+			$sfsi_section3_options = maybe_unserialize(get_option('sfsi_section3_options', false));
+			$sfsi_section4_options = maybe_unserialize(get_option('sfsi_section4_options', false));
+			$sfsi_section5_options = maybe_unserialize(get_option('sfsi_section5_options', false));
+			$sfsi_section6_options = maybe_unserialize(get_option('sfsi_section6_options', false));
+			$sfsi_section7_options = maybe_unserialize(get_option('sfsi_section7_options', false));
 			/* get active theme */
 			$border_radius = '';
 			$active_theme = $sfsi_section3_options['sfsi_actvite_theme'];
@@ -1475,11 +1477,10 @@ class Sfsi_Widget extends WP_Widget
 		function sfsi_checkNewWindow()
 		{
 			global $wpdb;
-			$sfsi_section5_options =  unserialize(get_option('sfsi_section5_options', false));
+			$sfsi_section5_options = maybe_unserialize(get_option('sfsi_section5_options', false));
 			if ($sfsi_section5_options['sfsi_icons_ClickPageOpen'] == "yes") {
 				return  $new_window = "target='_blank'";
 			} else {
 				return '';
 			}
 		}
-		?>

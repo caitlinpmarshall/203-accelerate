@@ -70,7 +70,7 @@ class subscriber_widget extends WP_Widget
 	add_shortcode("USM_form", "sfsi_get_subscriberForm");
 	function sfsi_get_subscriberForm()
 	{
-		$option8 = unserialize(get_option('sfsi_section8_options', false));
+		$option8 = maybe_unserialize(get_option('sfsi_section8_options', false));
 		$sfsi_feediid = sanitize_text_field(get_option('sfsi_feed_id'));
 		if ($sfsi_feediid == "") {
 			$url = "https://api.follow.it/subscribe";

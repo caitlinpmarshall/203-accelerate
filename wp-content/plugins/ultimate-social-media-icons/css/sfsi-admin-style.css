@@ -114,7 +114,7 @@ a#save_all_settings {
 #accordion1 p {
     color: #5a6570;
     text-align: left;
-    /*font-family: helveticaregular;*/
+    /* font-family: 'helveticaregular'; */
     font-family: 'helveticaneue-light';
     font-size: 17px;
     line-height: 26px;
@@ -4353,7 +4353,7 @@ body .specify_counts .listing .sfsi_instagramInstruction li {
 .sfsi_responsive_default_icon_container .sfsi_icon_container .sfsi_responsive_icon_item_container span,
 .sfsi_responsive_custom_icon_container .sfsi_icon_container .sfsi_responsive_icon_item_container span {
     color: #ffffff;
-    font-size: 20px;
+    font-size: 19px;
     padding: 0 10px;
     letter-spacing: 0.5px;
     font-weight: 500;
@@ -5001,4 +5001,21 @@ text-decoration:none!important;
 
 div#analyst-install-modal * {
     box-sizing: unset;
+}
+
+.SFSI-overlay #adminmenuback {
+    z-index: 1001;
+}
+
+body .specify_counts .listing .sfsi_instagramInstruction ol li,
+body .specify_counts .listing .sfsi_instagramInstruction ol li a,
+.specify_counts.facebook_section .sfsi_shared_premium,
+.specify_counts.facebook_section .sfsi_shared_premium a,
+.specify_counts.twitter_section .SFSI_instructions li,
+.specify_counts.twitter_section .SFSI_instructions li a {
+  font-family: 'helveticaneue-light' !important;
+  color: #414951 !important;
+}
+body .specify_counts .listing .sfsi_instagramInstruction p {
+  color:  #414951 !important;
 }

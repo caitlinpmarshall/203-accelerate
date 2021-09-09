@@ -2,7 +2,7 @@
 
 /* unserialize all saved option for  section 8 options */
 
-$option8 = unserialize(get_option('sfsi_section8_options', false));
+$option8 = maybe_unserialize(get_option('sfsi_section8_options', false));
 
 $feedId = sanitize_text_field(get_option('sfsi_feed_id', false));
 

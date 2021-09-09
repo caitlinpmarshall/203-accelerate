@@ -1,8 +1,8 @@
 <?php
 	/* unserialize all saved option for  section 5 options */
 	$icons 		= ($option1['sfsi_custom_files']) ? unserialize($option1['sfsi_custom_files']) : array() ;
-	$option3	= unserialize(get_option('sfsi_section3_options',false));
-	$option5	= unserialize(get_option('sfsi_section5_options',false));
+	$option3	= maybe_unserialize(get_option('sfsi_section3_options',false));
+	$option5	= maybe_unserialize(get_option('sfsi_section5_options',false));
 	$custom_icons_order = unserialize($option5['sfsi_CustomIcons_order']);
 	if(!isset($option5['sfsi_telegramIcon_order'])){                     
         $option5['sfsi_telegramIcon_order']    = '11';
@@ -127,7 +127,7 @@
 
 <!-- Section 5 "Any other wishes for your main icons?" main div Start -->
 <div class="tab5">
-<h4><?php _e("Order of your icons",'ultimate-social-media-icons') ?></h4>
+<h4><?php _e( 'Order of your icons', 'ultimate-social-media-icons' ); ?></h4>
     <!-- icon drag drop  section start here -->	
     <ul class="share_icon_order" >
         <?php 
@@ -198,37 +198,34 @@
                 <?php endif; ?><?php break; ?><?php  endswitch; ?><?php endforeach; ?> 
      
     </ul> <!-- END icon drag drop section start here -->
-    
-		<span class="drag_drp">
-			<?php 
-					printf(
-						__( '(Drag %1s Drop)','ultimate-social-media-icons' ),
-						'&amp;'       
-					);
-			?>
-		 </span>
-     <!-- icon's size and spacing section start here -->	
-    <div class="row">
-		<h4>
-		<?php 
-                printf(
-                    __( 'Size %1s spacing of your icons','ultimate-social-media-icons' ),
-                     '&amp;'       
-                );
-        ?>
-	  </h4>
-	  <div class="icons_size"><span><?php _e("Size:",'ultimate-social-media-icons') ?></span><input name="sfsi_icons_size" value="<?php echo ($option5['sfsi_icons_size']!='') ?  $option5['sfsi_icons_size'] : '' ;?>" type="text" /><ins><?php _e("pixels wide ",'ultimate-social-media-icons') ?> &amp; <?php _e(" tall",'ultimate-social-media-icons') ?></ins> <span class="last"><?php _e("Spacing between icons:",'ultimate-social-media-icons') ?>Spacing between icons:</span><input name="sfsi_icons_spacing" type="text" value="<?php echo ($option5['sfsi_icons_spacing']!='') ?  $option5['sfsi_icons_spacing'] : '' ;?>" /><ins><?php _e("Pixels",'ultimate-social-media-icons') ?></ins></div>
 
-	  <div class="icons_prem_disc">
-        <p class="sfsi_prem_plu_desc"><b><?php _e("New:",'ultimate-social-media-icons') ?> </b><?php _e("The Premium Plugin also allows you to define the vertical distance between the icons (and set this differently for mobile vs. desktop):",'ultimate-social-media-icons') ?> <a  class="pop-up" data-id="sfsi_quickpay-overlay" onclick="sfsi_open_quick_checkout(event)"  style="cursor:pointer;border-bottom: 1px solid #12a252;color: #12a252 !important;font-weight:bold" class="sfisi_font_bold" target="_blank"><?php _e("Go premium now",'ultimate-social-media-icons') ?> <a href="https://www.ultimatelysocial.com/usm-premium/?utm_source=usmi_settings_page&utm_campaign=more_spacings&utm_medium=banner" class="sfsi_font_inherit" style="color: #12a252 !important" target="_blank"> <?php _e("or learn more.",'ultimate-social-media-icons') ?></a>
-    </div>
+    <span class="drag_drp">
+		<?php _e( '(Drag &amp; Drop)', 'ultimate-social-media-icons' ); ?>
+	</span>
     
+    <!-- icon's size and spacing section start here -->	
+    <div class="row">
+		<h4><?php _e( 'Size &amp; spacing of your icons', 'ultimate-social-media-icons' ); ?></h4>
+		<div class="icons_size"><span><?php _e("Size:",'ultimate-social-media-icons') ?></span><input name="sfsi_icons_size" value="<?php echo ($option5['sfsi_icons_size']!='') ?  $option5['sfsi_icons_size'] : '' ;?>" type="text" /><ins><?php _e("pixels wide ",'ultimate-social-media-icons') ?> &amp; <?php _e(" tall",'ultimate-social-media-icons') ?></ins> <span class="last"><?php _e("Spacing between icons:",'ultimate-social-media-icons') ?></span><input name="sfsi_icons_spacing" type="text" value="<?php echo ($option5['sfsi_icons_spacing']!='') ?  $option5['sfsi_icons_spacing'] : '' ;?>" /><ins><?php _e( 'Pixels', 'ultimate-social-media-icons' ) ?></ins></div>
+
+		<div class="icons_prem_disc">			
+			<p class="sfsi_prem_plu_desc"><?php 
+                printf(
+                    __( '%1$sNew:%2$s The Premium Plugin also allows you to define the vertical distance between the icons (and set this differently for mobile vs. desktop): %3$sGo premium now%4$s or learn more.%5$s','ultimate-social-media-icons' ),
+                    '<b>',
+                    '</b>',
+                    '<a class="pop-up sfisi_font_bold" data-id="sfsi_quickpay-overlay" onclick="sfsi_open_quick_checkout(event)" style="cursor:pointer;border-bottom: 1px solid #12a252;color: #12a252 !important;font-weight:bold" target="_blank">',
+                    '</a><a href="https://www.ultimatelysocial.com/usm-premium/?utm_source=usmi_settings_page&utm_campaign=more_spacings&utm_medium=banner" class="sfsi_font_inherit" style="color: #12a252 !important" target="_blank">',
+                    '</a>'
+                );
+            ?></p>
+		</div>
     </div>
     
     <div class="row" style="font-size: 17px;">
-	<h4><?php _e("Alignments",'ultimate-social-media-icons') ?></h4>
+	<h4><?php _e( 'Alignments', 'ultimate-social-media-icons' ); ?></h4>
 	<div class="icons_size" style="width: max-content;display:flow-root">
-		<span style="font-size: 17px;"><?php _e("Icons per row:",'ultimate-social-media-icons') ?></span>
+		<span style="font-size: 17px;"><?php _e( 'Icons per row:', 'ultimate-social-media-icons' ); ?></span>
 		<input name="sfsi_icons_perRow" type="text" value="<?php echo ($option5['sfsi_icons_perRow']!='') ?  $option5['sfsi_icons_perRow'] : '' ;?>" />
 		<ins class="leave_empty" style="margin-bottom: 34px;font-size: 17px;"><?php _e("Leave empty if you don't want to",'ultimate-social-media-icons') ?> <br /><?php _e("define this",'ultimate-social-media-icons') ?> </ins>
 	</div>
@@ -275,14 +272,14 @@
 
     <div class= "sfsi_new_prmium_follw" style="margin-top: 38px;">
 		<?php 
-                printf(
-                    __( '%1s New: %2s In the Premium Plugin you can show the icons vertically and give them different alignment options for icons placed on mobile %3s  See all features. %4s','ultimate-social-media-icons' ),
-					'<p><b>' ,
-					'</b>',
-					'<a href="https://www.ultimatelysocial.com/usm-premium/?utm_source=usmi_settings_page&utm_campaign=more_alignment_options&utm_medium=banner" class="sfsi_font_inherit" target="_blank">',
-					'</a></p>'       
-                );
-        ?>	
+			printf(
+				__( '%1$s New: %2$s In the Premium Plugin you can show the icons vertically and give them different alignment options for icons placed on mobile. %3$s  See all features. %4$s', 'ultimate-social-media-icons' ),
+				'<p><b>',
+				'</b>',
+				'<a href="https://www.ultimatelysocial.com/usm-premium/?utm_source=usmi_settings_page&utm_campaign=more_alignment_options&utm_medium=banner" class="sfsi_font_inherit" target="_blank">',
+				'</a></p>'
+			);
+		?>
 	</div>
 
     </div>
@@ -334,34 +331,26 @@
 		</ul>
 
 		
-		<p>
-			
-			<?php 
-					printf(
-						__( 'If you select «Yes» here, then the icons which you placed via %1s widget %2s or %3 shortcode %4s will still be visible on the screen as user scrolls down your page, i.e. they will stick at the top. %5s','ultimate-social-media-icons' ),
-						'<span style="text-decoration: underline;"><b>',
-						'</b></span> ',
-						'<span style="text-decoration: underline;"><b>',
-						'</b></span> ',
-						'</p> '
-					);
-			?>
-		<p>
+		<p><?php 
+			printf(
+				__( 'If you select «Yes» here, then the icons which you placed via %1$swidget%2$s or %3$sshortcode%4$s will still be visible on the screen as user scrolls down your page, i.e. they will stick at the top.', 'ultimate-social-media-icons' ),
+				'<span style="text-decoration: underline;"><b>',
+				'</b></span>',
+				'<span style="text-decoration: underline;"><b>',
+				'</b></span>'
+			);
+		?></p>
 		
 
-		<p>
-			<?php 
-					printf(
-						__( 'This is not to be confused with making the icons permanently placed in the same position, which is possible in the %1s Premium Plugin.%2s','ultimate-social-media-icons' ),
-						'<a target="_blank" href="https://www.ultimatelysocial.com/usm-premium"><b>',
-						'</b></a>'  
-					);
-			?>
-			
-		</p> 
+		<p><?php 
+			printf(
+				__( 'This is not to be confused with making the icons permanently placed in the same position, which is possible in the %1$s Premium Plugin.%2$s', 'ultimate-social-media-icons' ),
+				'<a target="_blank" href="https://www.ultimatelysocial.com/usm-premium"><b>',
+				'</b></a>'
+			);
+		?></p>
 
   	</div>
-  
 
 </div><!-- END icon's floating and stick section -->
 
@@ -378,45 +367,41 @@
 				$checkedVal = (isset($option5['sfsi_custom_social_hide'])) ? $option5['sfsi_custom_social_hide']: 'no';				
 			?>
 		<div class="social_data_post_types">
-				<ul class="socialPostTypesUl">
-                	<li>
-						<div class="radio_section tb_4_ck">
-							<input type="checkbox" <?php echo $checked; ?> value="page" class="styled"  />
-							<label class="cstmdsplsub"><?php _e("Page",'ultimate-social-media-icons') ?></label>
-						</div>
-					</li>
-                	<li>
-						<div class="radio_section tb_4_ck">
-							<input type="checkbox" <?php echo $checked; ?> value="post" class="styled"  />
-							<label class="cstmdsplsub"><?php _e("Post",'ultimate-social-media-icons') ?></label>
-						</div>
-					</li>						
-                </ul>
+			<ul class="socialPostTypesUl">
+				<li>
+					<div class="radio_section tb_4_ck">
+						<input type="checkbox" <?php echo $checked; ?> value="page" class="styled"  />
+						<label class="cstmdsplsub"><?php _e("Page",'ultimate-social-media-icons') ?></label>
+					</div>
+				</li>
+            	<li>
+					<div class="radio_section tb_4_ck">
+						<input type="checkbox" <?php echo $checked; ?> value="post" class="styled"  />
+						<label class="cstmdsplsub"><?php _e("Post",'ultimate-social-media-icons') ?></label>
+					</div>
+				</li>						
+            </ul>
 
-                <ul class="sfsi_show_hide_section">
-               		<li>
-						<div class="radio_section tb_4_ck">
-							<input name="sfsi_custom_social_hide" type="checkbox" <?php echo $checkedS; ?> value="<?php echo $checkedVal; ?>" class="styled"  />
-							<label class="cstmdsplsub"><?php _e("Hide section for all",'ultimate-social-media-icons') ?></label>
-						</div>
-					</li>
-                </ul>
+            <ul class="sfsi_show_hide_section">
+           		<li>
+					<div class="radio_section tb_4_ck">
+						<input name="sfsi_custom_social_hide" type="checkbox" <?php echo $checkedS; ?> value="<?php echo $checkedVal; ?>" class="styled"  />
+						<label class="cstmdsplsub"><?php _e("Hide section for all",'ultimate-social-media-icons') ?></label>
+					</div>
+				</li>
+            </ul>
  		</div>
 
 		<div class="sfsi_new_prmium_follw sfsi_social_sharing" style="margin-bottom: 15px;">
-				
-		
-			<?php 
-					printf(
-						__( '%1s Note: This feature is currently only available in the Premium Plugin.%2s Go premium now %3s or learn more. %4s','ultimate-social-media-icons' ),
-						 '<p>',
-						 '<a class="pop-up" data-id="sfsi_quickpay-overlay" onclick="sfsi_open_quick_checkout(event)" style="cursor:pointer;border-bottom: 1px solid #12a252;color: #12a252 !important;font-weight:bold" class="sfisi_font_bold" target="_blank">',
-						 '</a><a href="https://www.ultimatelysocial.com/usm-premium/?utm_source=usmi_settings_page&utm_campaign=define_pic_and_text&utm_medium=banner" class="sfsi_font_inherit" target="_blank">',
-						 '</a></p>'
-					);
-			?>
-	 
-		</div> 		
+		<p><?php 
+			printf(
+				__( 'Note: This feature is currently only available in the Premium Plugin. %1$sGo premium now%2$s or learn more.%3$s', 'ultimate-social-media-icons' ),
+				 '<a class="pop-up sfisi_font_bold" data-id="sfsi_quickpay-overlay" onclick="sfsi_open_quick_checkout(event)" style="cursor:pointer;border-bottom: 1px solid #12a252;color: #12a252 !important;font-weight:bold" target="_blank">',
+				 '</a><a href="https://www.ultimatelysocial.com/usm-premium/?utm_source=usmi_settings_page&utm_campaign=define_pic_and_text&utm_medium=banner" class="sfsi_font_inherit" target="_blank">',
+				 '</a>'
+			);
+		?></p>
+		</div>
 </div>
 
 <!--********************  Sharing texts & pictures section CLOSES ************************************************-->

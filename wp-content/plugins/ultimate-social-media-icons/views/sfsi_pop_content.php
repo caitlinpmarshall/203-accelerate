@@ -588,35 +588,20 @@ $pin_url= isset($option2['sfsi_pinterest_pageUrl']) && !empty($option2['sfsi_pin
 				return false;
 			}
 		 </script>
-    </div>    
-</div>        
+    </div>
+</div>
 
 <!-- quickpay overlay -->
-<div class="pop-overlay read-overlay sfsi_quickpay-overlay" style="background:rgba(255,255,255,.6);z-index:9999;overflow-y:auto" >
-  <script type="text/javascript" src="https://sellcodes.com/quick_purchase/XdHlrQnc/embed.js"></script>
-  <div class="pop_up_box sfsi_pop_up" style="padding-left: 0;padding-right: 0;padding-top:0;margin-top:7%;width:50%;" >
+<div class="pop-overlay read-overlay sfsi_quickpay-overlay" style="background:rgba(255,255,255,.6);z-index:9999;overflow-y:auto">
+  <div class="pop_up_box sfsi_pop_up" style="padding-left: 0;padding-right: 0;padding-top:0;margin-top:7%;width:50%;">
     <div class="" >
       <h2 style="font-size: 30px; padding: 30px 10px ; border:1px solid #eee;background:#fbfbfb;text-align:center" ><?php _e("How do you want to pay?",'ultimate-social-media-icons') ?></h2>
     </div>   
-    <div class="sfsi_quick-pay-box" style="display:none" >
+    <div class="sfsi_quick-pay-box" style="display:none">
       <div>
         <div class="sfsi_row sfsi_text_center">
-          <div class="sfsi_col_6" style="text-align: right; vertical-align: middle;">
-              <div class="sellcodes-quick-purchase" onclick="sfsi_quickpay_container_click(event)" style="margin-right: 15px; padding: 18px 40px !important;cursor:pointer">
-                <p class="sc-button" data-product-id="XdHlrQnc" data-option-id="ftHaa2zt" data-paymethod="0">
-                  <img src="<?php echo SFSI_PLUGURL; ?>images/visa.png" alt='error' />
-                  <img src="<?php echo SFSI_PLUGURL; ?>images/mastercard.png"  alt='error'/>
-                </p>
-                
-              </div>
-          </div>
-          <div class="sfsi_col_6"  style="text-align: left; vertical-align: middle;">
-             <div class="sellcodes-quick-purchase" onclick="sfsi_quickpay_container_click(event)"  style="margin-left: 0px;cursor:pointer">
-                <p class="sc-button" data-product-id="XdHlrQnc" data-option-id="ftHaa2zt" data-paymethod="1">
-                  <img src="<?php echo SFSI_PLUGURL; ?>images/paypal-1.png" alt='paypal'/>
-              </p>
-            </div>
-          </div>
+          <sellcodes-checkout offer="XdHlrQnc" button-text="Buy Now" show-pay-methods="true" link-image-card="https://sellcodes.com/assets/images/credit_card_method.png" link-image-paypal="<?php echo SFSI_PLUGURL; ?>images/paypal-1.png"/>
+          <script src="https://sellcodes.com/quick-checkout/sellcodes-checkout.js"></script>
         </div>
         <div class="sfsi_subheading" style="text-align: center;color:#888;margin:20px;" ><?php _e("Click will establish a connection to Sellcodes.com",'ultimate-social-media-icons') ?></div>
       </div>

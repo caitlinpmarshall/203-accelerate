@@ -322,8 +322,8 @@ function sfsi_UploadIcons()
 		$ImageName = preg_replace("/\\.[^.\\s]{3,4}$/", "", $iconName);
 		//$cnt=$i+1;
 		
-		$sec_options= (get_option('sfsi_section1_options',false)) ? unserialize(get_option('sfsi_section1_options',false)) : '' ;        
-		$icons = (is_array(unserialize($sec_options['sfsi_custom_files']))) ? unserialize($sec_options['sfsi_custom_files']) : array();
+		$sec_options= (get_option('sfsi_section1_options',false)) ? maybe_unserialize(get_option('sfsi_section1_options',false)) : '' ;        
+		$icons = (is_array(maybe_unserialize($sec_options['sfsi_custom_files']))) ? maybe_unserialize($sec_options['sfsi_custom_files']) : array();
 		if(empty($icons))
 		{   
 			end($icons);
@@ -342,7 +342,7 @@ function sfsi_UploadIcons()
 		{
 			 //update database information 
 				$AccressImagePath=$AcceessUrl.$NewIconName;                                        
-					$sec_options= (get_option('sfsi_section1_options',false)) ? unserialize(get_option('sfsi_section1_options',false)) : '' ;
+					$sec_options= (get_option('sfsi_section1_options',false)) ? maybe_unserialize(get_option('sfsi_section1_options',false)) : '' ;
 					$icons = (is_array(unserialize($sec_options['sfsi_custom_files']))) ? unserialize($sec_options['sfsi_custom_files']) : array();
 					$icons[] = $AccressImagePath;
 					
@@ -374,8 +374,8 @@ function sfsi_deleteIcons()
        $custom_icon_name= sanitize_text_field($_POST['icon_name']);
        preg_match_all('/\d+/', $custom_icon_name, $custom_icon_numbers);
        $custom_icon_number =    count($custom_icon_numbers)>0?((is_array($custom_icon_numbers[0])&&count($custom_icon_numbers[0])>0)?$custom_icon_numbers[0][0]:0):0;
-       $sec_options1	= (get_option('sfsi_section1_options',false)) ? unserialize(get_option('sfsi_section1_options',false)) : array() ;
-       $sec_options2	= (get_option('sfsi_section2_options',false)) ? unserialize(get_option('sfsi_section2_options',false)) : array() ;
+       $sec_options1	= (get_option('sfsi_section1_options',false)) ? maybe_unserialize(get_option('sfsi_section1_options',false)) : array() ;
+       $sec_options2	= (get_option('sfsi_section2_options',false)) ? maybe_unserialize(get_option('sfsi_section2_options',false)) : array() ;
        $up_icons		= (is_array(unserialize($sec_options1['sfsi_custom_files']))) ? unserialize($sec_options1['sfsi_custom_files']) : array();
        $icons_links		= (is_array(unserialize($sec_options2['sfsi_CustomIcon_links']))) ? unserialize($sec_options2['sfsi_CustomIcon_links']) : array();
        $icon_url=$up_icons[$custom_icon_number];  

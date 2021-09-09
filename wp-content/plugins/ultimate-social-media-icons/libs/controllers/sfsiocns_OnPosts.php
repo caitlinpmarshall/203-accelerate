@@ -4,9 +4,9 @@
 function sfsi_social_buttons_below($content)
 {
 	global $post;
-	$sfsi_section4 =  unserialize(get_option('sfsi_section4_options', false));
-	$sfsi_section6 =  unserialize(get_option('sfsi_section6_options', false));
-	$sfsi_section9   = unserialize(get_option('sfsi_section9_options', false));
+	$sfsi_section4 = maybe_unserialize(get_option('sfsi_section4_options', false));
+	$sfsi_section6 = maybe_unserialize(get_option('sfsi_section6_options', false));
+	$sfsi_section9 = maybe_unserialize(get_option('sfsi_section9_options', false));
 	// if($sfsi_section9["sfsi_show_via_afterposts"]!=="yes"){
 	// 	return $content;
 	// }
@@ -66,7 +66,7 @@ function sfsi_social_buttons_below($content)
 					$icons .= "<div class='sf_fb sf_icon' style='text-align:left;vertical-align: middle;'>" . sfsi_FBlike($permalink, $show_count) . "</div>";
 				}
 				if ($sfsi_section6['sfsi_rectfbshare'] == 'yes') {
-					$sfsi_section4	= unserialize(get_option('sfsi_section4_options', false));
+					$sfsi_section4 = maybe_unserialize(get_option('sfsi_section4_options', false));
 					$socialObj = new sfsi_SocialHelper();
 					$count_html = "";
 					if ($show_count > 0) {
@@ -88,31 +88,31 @@ function sfsi_social_buttons_below($content)
 					$icons .= "<div class='sf_fb_share sf_icon' style='text-align:left;vertical-align: middle;'>" . sfsiFB_Share_Custom($permalink, $show_count) . $count_html . "</div>";
 				}
 				if (($sfsi_section6['sfsi_recttwtr'] == "yes")) {
-					// if ($show_count ) {
-					// 	/* get twitter counts */
-					// 	if ($sfsi_section4['sfsi_twitter_countsFrom'] == "source") {
-					// 		$option2	= unserialize(get_option('sfsi_section2_options', false));
+					/* get twitter counts */
+					/*if ($show_count ) {
+						if ($sfsi_section4['sfsi_twitter_countsFrom'] == "source") {
+							$option2	= maybe_unserialize(get_option('sfsi_section2_options', false));
 
-					// 		$twitter_user = $option2['sfsi_twitter_followUserName'];
-					// 		$tw_settings = array(
-					// 			'tw_consumer_key' => $sfsi_section4['tw_consumer_key'],
-					// 			'tw_consumer_secret' => $sfsi_section4['tw_consumer_secret'],
-					// 			'tw_oauth_access_token' => $sfsi_section4['tw_oauth_access_token'],
-					// 			'tw_oauth_access_token_secret' => $sfsi_section4['tw_oauth_access_token_secret']
-					// 		);
+							$twitter_user = $option2['sfsi_twitter_followUserName'];
+							$tw_settings = array(
+								'tw_consumer_key' => $sfsi_section4['tw_consumer_key'],
+								'tw_consumer_secret' => $sfsi_section4['tw_consumer_secret'],
+								'tw_oauth_access_token' => $sfsi_section4['tw_oauth_access_token'],
+								'tw_oauth_access_token_secret' => $sfsi_section4['tw_oauth_access_token_secret']
+							);
 
-					// 		$followers = $socialObj->sfsi_get_tweets($twitter_user, $tw_settings);
-					// 		$counts = $socialObj->format_num($followers);
-					// 	} else {
-					// 		$counts = $socialObj->format_num($sfsi_section4['sfsi_twitter_manualCounts']);
+							$followers = $socialObj->sfsi_get_tweets($twitter_user, $tw_settings);
+							$counts = $socialObj->format_num($followers);
+						} else {
+							$counts = $socialObj->format_num($sfsi_section4['sfsi_twitter_manualCounts']);
 
-					// 	}
-					// 	if($counts>0){
-					// 		$count_html = '<span class="bot_no">'.$counts.'</span>';
-					// 	}
-					// }
+						}
+						if($counts>0){
+							$count_html = '<span class="bot_no">'.$counts.'</span>';
+						}
+					}*/
 					$icons .= sfsi_twitterlike($permalink, $show_count, true);
-					// $icons .= "<div class='sf_twiter' style='text-align:left;float:left;vertical-align: middle;width:auto'>" . . "</div>";
+					/*$icons .= "<div class='sf_twiter' style='text-align:left;float:left;vertical-align: middle;width:auto'>" . . "</div>";*/
 				}
 
 				if ($sfsi_section6['sfsi_rectpinit'] == 'yes') {
@@ -150,9 +150,9 @@ function sfsi_Subscribelike($permalink, $show_count)
 	global $socialObj;
 	$socialObj = new sfsi_SocialHelper();
 
-	$sfsi_section2_options =  unserialize(get_option('sfsi_section2_options', false));
-	$sfsi_section4_options = unserialize(get_option('sfsi_section4_options', false));
-	$sfsi_section6_options =  unserialize(get_option('sfsi_section6_options', false));
+	$sfsi_section2_options = maybe_unserialize(get_option('sfsi_section2_options', false));
+	$sfsi_section4_options = maybe_unserialize(get_option('sfsi_section4_options', false));
+	$sfsi_section6_options = maybe_unserialize(get_option('sfsi_section6_options', false));
 	$url = (isset($sfsi_section2_options['sfsi_email_url'])) ? $sfsi_section2_options['sfsi_email_url'] : 'https://follow.it/now';
 	if ($sfsi_section4_options['sfsi_email_countsFrom'] == "source") {
 		$feed_id = sanitize_text_field(get_option('sfsi_feed_id', false));
@@ -246,7 +246,7 @@ function sfsi_FBlike($permalink, $show_count)
 	$send = 'false';
 	$fb_like_html = '';
 
-	$option6 =  unserialize(get_option('sfsi_section6_options', false));
+	$option6 = maybe_unserialize(get_option('sfsi_section6_options', false));
 
 	$fb_like_html .= '<div class="fb-like" data-href="' . $permalink . '"  data-send="' . $send . '" ';
 
@@ -271,10 +271,10 @@ function sfsiFB_Share_Custom($permalink, $show_count = false)
 /* add all external javascript to wp_footer */
 function sfsi_footer_script()
 {
-	$sfsi_section1 =  unserialize(get_option('sfsi_section1_options', false));
-	$sfsi_section6 =  unserialize(get_option('sfsi_section6_options', false));
-	$sfsi_section9   = unserialize(get_option('sfsi_section9_options', false));
-	$sfsi_section2 =  unserialize(get_option('sfsi_section2_options', false));
+	$sfsi_section1 = maybe_unserialize(get_option('sfsi_section1_options', false));
+	$sfsi_section6 = maybe_unserialize(get_option('sfsi_section6_options', false));
+	$sfsi_section9 = maybe_unserialize(get_option('sfsi_section9_options', false));
+	$sfsi_section2 = maybe_unserialize(get_option('sfsi_section2_options', false));
 
 	if (!isset($sfsi_section6['sfsi_rectsub'])) {
 		$sfsi_section6['sfsi_rectsub'] = 'no';
@@ -398,8 +398,8 @@ function sfsi_footer_script()
 		global $wp;
 		$count = 60;
 		if (((isset($option6["sfsi_display_button_type"]) && $option6["sfsi_display_button_type"] == "responsive_button")) || $server_side) :
-			$option2 = unserialize(get_option('sfsi_section2_options', false));
-			$option4 = unserialize(get_option('sfsi_section4_options', false));
+			$option2 = maybe_unserialize(get_option('sfsi_section2_options', false));
+			$option4 = maybe_unserialize(get_option('sfsi_section4_options', false));
 			$icons = "";
 			$sfsi_responsive_icons = (isset($option6["sfsi_responsive_icons"]) ? $option6["sfsi_responsive_icons"] : null);
 			$current_url = in_the_loop() ? add_query_arg($_GET ? $_GET : array(), get_permalink()) : add_query_arg($wp->query_vars, home_url($wp->request));
@@ -456,7 +456,7 @@ function sfsi_footer_script()
 				$counter_class = "sfsi_responsive_without_counter_icons";
 				$couter_display = "none";
 			endif;
-			$icons .= "<div class='sfsi_responsive_icons' style='display:inline-block;margin-top:" . $margin_above . "px; margin-bottom: " . $margin_below . "px; " . ($icon_width_type == "Fully Responsive" ? "width:100%;display:flex; " : 'width:100%') . "' data-icon-width-type='" . $icon_width_type . "' data-icon-width-size='" . $sfsi_responsive_icons["settings"]['icon_width_size'] . "' data-edge-type='" . $sfsi_responsive_icons["settings"]['edge_type'] . "' data-edge-radius='" . $sfsi_responsive_icons["settings"]['edge_radius'] . "'  >";
+			$icons .= "<div class='sfsi_responsive_icons' style='display:inline-block;margin-top:" . $margin_above . "px; margin-bottom: " . $margin_below . "px; " . ($icon_width_type == "Fully responsive" ? "width:100%;display:flex; " : 'width:100%') . "' data-icon-width-type='" . $icon_width_type . "' data-icon-width-size='" . $sfsi_responsive_icons["settings"]['icon_width_size'] . "' data-edge-type='" . $sfsi_responsive_icons["settings"]['edge_type'] . "' data-edge-radius='" . $sfsi_responsive_icons["settings"]['edge_radius'] . "'  >";
 			$sfsi_anchor_div_style = "";
 			if ($sfsi_responsive_icons["settings"]["edge_type"] === "Round") {
 				$sfsi_anchor_div_style .= " border-radius:";

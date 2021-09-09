@@ -91,7 +91,7 @@
     <!-- Top content area of plugin -->
     <div class="main_contant">
         <?php
-        $sfsi_new_intro_banner_hide_option = unserialize(get_option('sfsi_new_intro_banner_hide_option'));
+        $sfsi_new_intro_banner_hide_option = maybe_unserialize(get_option('sfsi_new_intro_banner_hide_option'));
         ?>
         <div class="sfsi_new_intro pb-4" style="<?php echo ($sfsi_new_intro_banner_hide_option['sfsi_display_section'] == "true") ?  'display:block !important;' : 'display:none!important;'; ?>">
             <div class="row justify-content-center">
@@ -370,7 +370,7 @@
         <!-- step 7 END here -->
        
         <!-- step 8 Start here -->
-        <h3 style="font-size: large!important;"><span>8</span><?php _e("Do you want to show a subscription form (",'ultimate-social-media-icons') ?><b><?php _e("increases sign ups",'ultimate-social-media-icons') ?></b>)?</h3>
+        <h3><span>8</span><?php _e("Do you want to show a subscription form (",'ultimate-social-media-icons') ?><b><?php _e("increases sign ups",'ultimate-social-media-icons') ?></b>)?</h3>
         <?php  include(SFSI_DOCROOT . '/views/sfsi_option_view8.php'); ?>
         <!-- step 8 END here -->
 
