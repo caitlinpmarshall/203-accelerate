@@ -33,6 +33,19 @@ function create_custom_post_types() {
             'rewrite' => array( 'slug' => 'case-studies' ),
         )
     );
+// Create careers custom post
+register_post_type( 'careers',
+array(
+    'labels' => array(
+        'name' => __( 'Careers' ),
+        'singular_name' => __( 'Job Opening' )
+    ),
+    'public' => true,
+    'has_archive' => true,
+    'rewrite' => array( 'slug' => 'careers' ),
+)
+);
+
 
 }
 add_action( 'init', 'create_custom_post_types' );
