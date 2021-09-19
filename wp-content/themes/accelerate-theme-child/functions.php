@@ -34,17 +34,17 @@ function create_custom_post_types() {
         )
     );
 // Create careers custom post
-register_post_type( 'careers',
-array(
-    'labels' => array(
-        'name' => __( 'Careers' ),
-        'singular_name' => __( 'Job Opening' )
-    ),
-    'public' => true,
-    'has_archive' => true,
-    'rewrite' => array( 'slug' => 'careers' ),
-)
-);
+    register_post_type( 'careers',
+    array(
+        'labels' => array(
+            'name' => __( 'Careers' ),
+            'singular_name' => __( 'Job Opening' )
+        ),
+        'public' => true,
+        'has_archive' => true,
+        'rewrite' => array( 'slug' => 'careers' ),
+    )
+    );
 
 
 }
