@@ -14,10 +14,6 @@ get_header(); ?>
 		<div class="main-content">
 			<?php while ( have_posts() ) : the_post(); ?>
 				<?php get_template_part('content', get_post_format()); ?>
-				<div class="post-social-icons">
-					<?php echo do_shortcode('[DISPLAY_ULTIMATE_SOCIAL_ICONS]'); ?>
-				</div>
-				<?php comments_template(); ?>
 			<?php endwhile; ?>
 
 		</div>

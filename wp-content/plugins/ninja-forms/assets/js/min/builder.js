@@ -3732,6 +3732,15 @@ define( 'views/app/drawer/itemSetting',['views/app/drawer/mergeTagsContent', 'vi
 		},
 
 		changeSetting: function( e ) {
+			//Check characters set in custom classes match sanitize_html_class
+			if ( 'textbox' == this.model.get( 'type' ) &&  this.model.get('name').endsWith("_class" )) {
+				const regexp = /^[a-zA-Z 0-9-_]+$/;
+				if(e.target.value.search(regexp) === -1 &&  ''!== e.target.value){
+					this.model.set('error', "HTML classes only allow - _ and alphanumeric characters." )
+				} else if(e.target.value.search(regexp) === 0 || ''=== e.target.value){
+					this.model.unset('error');
+				}
+			}
 			nfRadio.channel( 'app' ).trigger( 'change:setting', e, this.model, this.dataModel );
 		},
 

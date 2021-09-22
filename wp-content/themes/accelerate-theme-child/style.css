@@ -201,6 +201,16 @@ Text Domain:  accelerate-theme-child
     height: auto;
 }
 
+/* Custom Post Type: Case Studies styles */
+.job-type {
+    margin: 0;
+}
+
+.general-descrition {
+    margin: 2em auto;
+}
+
+/* TODO: specify these styles so they're only for contact form, not overriding the others */
 /* Contact Form Styles */
 h2 {
     margin: 0;
