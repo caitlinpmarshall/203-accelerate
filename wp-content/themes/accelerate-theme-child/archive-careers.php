@@ -12,6 +12,10 @@ get_header(); ?>
 
 	<div id="primary" class="site-content">
 		<div class="main-content" role="main">
+            <div class="careers-header">
+                <h1>Current Job Openings</h1>
+                <h3>Come join our team!</h3>
+            </div>
 			<?php while ( have_posts() ) : the_post(); 
 				$job_title = get_field('job_title');
 				$location = get_field('location');
@@ -19,8 +23,7 @@ get_header(); ?>
             ?>
                 <article class="case-study-archive">
 					<aside class="case-study-sidebar-archive">
-						<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-						<h4><span><?php echo $job_title; ?></span></h4>
+						<h2 class="archive-job-title"><a href="<?php the_permalink(); ?>"><?php echo $job_title; ?></a></h2>
                         <h4><span><?php echo $location; ?></span></h4>
 						<h4><span><?php echo $job_type; ?></span></h4>
 					</aside>

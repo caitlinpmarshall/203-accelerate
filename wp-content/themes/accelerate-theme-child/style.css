@@ -201,7 +201,7 @@ Text Domain:  accelerate-theme-child
     height: auto;
 }
 
-/* Custom Post Type: Case Studies styles */
+/* Custom Post Type: Careers styles */
 .job-type {
     margin: 0;
 }
@@ -209,6 +209,21 @@ Text Domain:  accelerate-theme-child
 .general-descrition {
     margin: 2em auto;
 }
+
+/* Careers Archive Styles */
+.careers-header {
+    text-align: center;
+}
+
+.careers-header h1 {
+    font-size: 36px;
+}
+
+.archive-job-title:hover {
+    color: #44A694;
+
+}
+
 
 /* TODO: specify these styles so they're only for contact form, not overriding the others */
 /* Contact Form Styles */
