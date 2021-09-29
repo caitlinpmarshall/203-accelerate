@@ -12,9 +12,17 @@ get_header(); ?>
 <section class="single-page">
 	<div class="site-content">
 		<div class="main-content">
-			<?php while ( have_posts() ) : the_post(); ?>
+			<?php while ( have_posts() ) : the_post(); 
+				$job_title = get_field('job_title');
+				$location = get_field('location');
+				$job_type = get_field();
+				$general_description = get_field('general_description');
+				$responsibilities = get_field('responsibilities');
+				$qualifications = get_field('qualifications');
+				$to_apply = get_field('to_apply');
+			?>
 				<div class="basic-info">
-					<h1>Lead Designer</h1>
+					<h1 class="job-title">Lead Designer</h1>
 					<h2 class="location" style="text-align: left;">New York</h2>
 					<h3 class="job-type" style="text-align: left;">Full Time</h3>
 				</div>
