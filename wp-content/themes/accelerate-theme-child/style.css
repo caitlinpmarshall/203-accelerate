@@ -208,7 +208,9 @@ Text Domain:  accelerate-theme-child
 }
 
 /* apply button styles */
-
+.button:hover {
+    background-color: darkcyan;
+}
 
 
 
