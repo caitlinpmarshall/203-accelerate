@@ -68,9 +68,6 @@ Text Domain:  accelerate-theme-child
     flex-flow: row wrap;
 }
 
-.individual-featured-work {
-
-}
 
 .individual-featured-work h3 {
     text-align: center;
@@ -209,6 +206,11 @@ Text Domain:  accelerate-theme-child
 .general-descrition {
     margin: 2em auto;
 }
+
+/* apply button styles */
+
+
+
 
 /* Careers Archive Styles */
 .careers-header {
